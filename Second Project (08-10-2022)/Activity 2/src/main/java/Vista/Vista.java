@@ -22,7 +22,6 @@ public class Vista extends javax.swing.JFrame {
     public Vista() {
         initComponents();
         setLocationRelativeTo(null);
-        inicializar();
     }
 
     /**
@@ -491,11 +490,6 @@ public class Vista extends javax.swing.JFrame {
         buttonGroup1.clearSelection();
     }
     
-    private void inicializar() {
-        System.out.println("Should work");
-    ImageIcon icono = new ImageIcon("../Recursos/icon.png");
-    this.setIconImage(icono.getImage());
-    }
     
 
 }

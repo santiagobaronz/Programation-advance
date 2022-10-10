@@ -17,6 +17,14 @@ public class Participante extends Persona{
         this.conferencia = conferencia;
     }
 
+    public String getConferencia() {
+        return conferencia;
+    }
+
+    public void setConferencia(String conferencia) {
+        this.conferencia = conferencia;
+    }
+
     
 
     

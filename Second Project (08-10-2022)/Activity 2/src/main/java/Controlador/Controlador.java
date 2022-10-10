@@ -9,7 +9,10 @@ import java.awt.event.*;
 import Modelo.Persona;
 import Vista.Vista;
 import java.awt.event.ActionEvent;
+import java.io.IOException;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -27,6 +30,10 @@ public class Controlador implements ActionListener {
         //le envia la referencia del listener al boton de la vista
         this.vista.jButton1.addActionListener(this);
         this.vista.jButton2.addActionListener(this);
+    }
+
+    Controlador() {
+        
     }
 
     public void iniciar() {
@@ -73,8 +80,16 @@ public class Controlador implements ActionListener {
             Participante participante = new Participante(name, user_id, option);
             listaInscritos.add(participante);
         }
+        
+        
+        if (e.getSource() == this.vista.jButton2){
+            try {
+                Archivo archivo = new Archivo();
+                archivo.EscribirEnArchivo();
+            } catch (IOException ex) {
+                Logger.getLogger(Controlador.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
     }
-
-
 } //fin de la clase
 
