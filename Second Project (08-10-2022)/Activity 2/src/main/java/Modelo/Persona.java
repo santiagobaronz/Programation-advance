@@ -11,30 +11,25 @@ package Modelo;
 public class Persona {
     
     // Declaramos variables
-    private int cedula;
+    private String cedula;
     private String nombreCompleto;
-    private String Conferencia;
     
     // Constructor
 
     public Persona() {
     }
     
-    public Persona(int cedula, String nombreCompleto, String Conferencia) {
+    public Persona(String cedula, String nombreCompleto) {
         this.cedula = cedula;
         this.nombreCompleto = nombreCompleto;
-        this.Conferencia = Conferencia;
     }
 
-    
-    
-    
     // Getters and setters
-    public int getCedula() {
+    public String getCedula() {
         return cedula;
     }
 
-    public void setCedula(int cedula) {
+    public void setCedula(String cedula) {
         this.cedula = cedula;
     }
 
@@ -46,13 +41,5 @@ public class Persona {
         this.nombreCompleto = nombreCompleto;
     }
 
-    public String getConferencia() {
-        return Conferencia;
-    }
-
-    public void setConferencia(String Conferencia) {
-        this.Conferencia = Conferencia;
-    }
-    
-    
+  
 }

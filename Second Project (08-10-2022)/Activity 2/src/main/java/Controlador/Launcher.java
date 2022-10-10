@@ -4,6 +4,7 @@
  */
 package Controlador;
 
+import Modelo.Persona;
 import Vista.Vista;
 import java.io.BufferedReader;
 import java.io.File;
@@ -18,8 +19,12 @@ public class Launcher {
     
 
     public static void main(String[] args) {
-        Vista view = new Vista();
-        view.setVisible(true);
+        Persona modelo = new Persona();
+        Vista vista = new Vista();
+        Controlador control = new Controlador(modelo, vista);
+        control.iniciar();
+        vista.setVisible(true);
+
         
     } //fin del main
 } //fin de la clase

@@ -10,13 +10,11 @@ package Modelo;
  */
 public class Participante extends Persona{
 
-    // Constructor
-    public Participante() {
-       
-    }
+    private String conferencia;
     
-    public Participante(int cedula, String nombreCompleto, String Conferencia) {
-        super(cedula, nombreCompleto, Conferencia);
+    public Participante(String nombreCompleto, String cedula, String conferencia) {
+        super(cedula, nombreCompleto);
+        this.conferencia = conferencia;
     }
 
     

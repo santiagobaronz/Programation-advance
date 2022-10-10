@@ -4,10 +4,12 @@
  */
 package Controlador;
 
-import java.awt.event.ActionListener;
+import Modelo.Participante;
+import java.awt.event.*;
 import Modelo.Persona;
 import Vista.Vista;
 import java.awt.event.ActionEvent;
+import java.util.ArrayList;
 
 /**
  *
@@ -15,10 +17,10 @@ import java.awt.event.ActionEvent;
  */
 public class Controlador implements ActionListener {
 
-    //se enlaza la vista y el control para servir de intermediario //entre los dos componentes
     private Persona modelo;
     private Vista vista;
 
+ 
     public Controlador(Persona modelo, Vista vista) {
         this.modelo = modelo;
         this.vista = vista;
@@ -27,28 +29,52 @@ public class Controlador implements ActionListener {
         this.vista.jButton2.addActionListener(this);
     }
 
-    public Controlador() {
-        
-    }
-
     public void iniciar() {
         //colocarle un titulo a la ventana
-        this.vista.setTitle("Registro");
+        this.vista.setTitle("Aplicativo para el registro de eventos (Programación Avanzada)");
         //Se le indica la posicion --> null para que la ventana inicie en //la posicion 0 es decir en el centro de la pantalla
         this.vista.setLocationRelativeTo(null);
     }
+    
+    
+    public static ArrayList<Persona> listaInscritos = new ArrayList<>();
 
-    //funcion que realiza el boton
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == this.vista.jButton1) {
-            this.modelo.setCedula(Integer.parseInt(this.vista.jTextField1.getText()));
-            this.modelo.setNombreCompleto(this.vista.jTextField2.getText());
-            String prueba = this.vista.buttonGroup1.getSelection().getActionCommand();
-            ArchivoDirecto ad = new ArchivoDirecto();
-            ad.escribir();
+            String name = this.vista.nombre.getText();
+            String user_id = this.vista.cedula.getText();
+            
+            String option = "";
+            
+            if(this.vista.jRadioButton1.isSelected()){
+                option = this.vista.jRadioButton1.getText();
+            }
+            if(this.vista.jRadioButton2.isSelected()){
+                option = this.vista.jRadioButton2.getText();
+            }
+            
+            if(this.vista.jRadioButton3.isSelected()){
+                option = this.vista.jRadioButton3.getText();
+            }
+            
+            if(this.vista.jRadioButton4.isSelected()){
+                option = this.vista.jRadioButton4.getText();
+            }
+            
+            if(this.vista.jRadioButton5.isSelected()){
+                option = this.vista.jRadioButton5.getText();
+            }
+            
+            if(this.vista.jRadioButton6.isSelected()){
+                option = this.vista.jRadioButton6.getText();
+            }
+            
+            Participante participante = new Participante(name, user_id, option);
+            listaInscritos.add(participante);
         }
     }
+
 
 } //fin de la clase
 
