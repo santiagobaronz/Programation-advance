@@ -16,6 +16,7 @@ import java.io.RandomAccessFile;
 import java.io.*;
 import java.util.*;
 import javax.swing.JFileChooser;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -26,7 +27,7 @@ import javax.swing.JFileChooser;
 public class Archivo{
 
    
-    private int indice;
+    private int indice = 0;
     private long tamreg;
     private long canreg;
     private File fl;
@@ -53,6 +54,7 @@ public class Archivo{
         
         try{
             
+            JOptionPane.showMessageDialog(null, "A continuación seleccione el archivo txt en el que desea guardar la infomación");
             JFileChooser fc = new JFileChooser(System.getProperty("user.dir"));   
             fc.showOpenDialog(fc);
             File archivo1 = fc.getSelectedFile();
@@ -62,12 +64,14 @@ public class Archivo{
             archivo = new RandomAccessFile(archivo1, "rw");
             
             for (int i = 0; i < array.size(); i++) {
-                if(archivo.length()!= 0){
+                if(archivo.length() != 0){
                     archivo.seek(archivo.length());
                 }
-                archivo.writeInt(i);
+                archivo.writeInt(indice);
                 archivo.writeChars(array.get(i).getNombreCompleto());
                 archivo.writeChars(array.get(i).getCedula());
+                
+                indice++;
                 
             }
             salida.close();
