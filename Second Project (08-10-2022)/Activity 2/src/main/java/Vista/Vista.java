@@ -482,9 +482,7 @@ public class Vista extends javax.swing.JFrame {
     public javax.swing.JTextField nombre;
     // End of variables declaration//GEN-END:variables
 
-    public void hide(boolean b) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
+
     //metodo blanquear campos al momento de una nueva inscripción 
     public void blanquearCampos() {
         cedula.setText("");

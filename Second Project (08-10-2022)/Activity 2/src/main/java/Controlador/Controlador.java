@@ -36,6 +36,7 @@ public class Controlador implements ActionListener {
     Controlador() {
         
     }
+    
     //metodo iniciar ventana
     public void iniciar() {
         //colocarle un titulo a la ventana
@@ -51,10 +52,17 @@ public class Controlador implements ActionListener {
     //ActionPerformed
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == this.vista.jButton1) {
-            String name = this.vista.nombre.getText();
-            String user_id = this.vista.cedula.getText();
             
+            // Declarando variables
+            String name = "";
+            String user_id = "";
             String option = "";
+            
+            // Obteniendo valores
+            name = this.vista.nombre.getText();
+            user_id = this.vista.cedula.getText();
+            
+
             //dependiendo de la seleccion del evento o conferencia se obtiene su texto
             if(this.vista.jRadioButton1.isSelected()){
                 option = this.vista.jRadioButton1.getText();
@@ -79,18 +87,28 @@ public class Controlador implements ActionListener {
                 option = this.vista.jRadioButton6.getText();
             }
             
-            Participante participante = new Participante(name, user_id, option);
-            listaInscritos.add(participante);
+            // Se verifica si los campos estan vacios para manejar ese caso
+            if(name.isBlank() || user_id.isBlank() || option.isBlank()){
+                JOptionPane.showMessageDialog(null, "Todos los campos deben estar llenos!");
+            }else{
+                Participante participante = new Participante(name, user_id, option);
+                listaInscritos.add(participante);
+            }
+            
+            
         }
         
         //validación
         if (e.getSource() == this.vista.jButton2){
             //manejo de excepcion al escribir en el archivo
             try {
-                Archivo archivo = new Archivo();
-                archivo.EscribirEnArchivo();
-                JOptionPane.showMessageDialog(null, "Los datos se han guardado en el archivo de texto. Gracias por usar el aplicativo!");
-                System.exit(0);
+                if(listaInscritos.size() != 0){
+                    Archivo archivo = new Archivo();
+                    archivo.EscribirEnArchivo();
+                }else{
+                    JOptionPane.showMessageDialog(null, "No hay datos para guardar!");
+                }
+                
             } catch (IOException ex) {
                 Logger.getLogger(Controlador.class.getName()).log(Level.SEVERE, null, ex);
             }

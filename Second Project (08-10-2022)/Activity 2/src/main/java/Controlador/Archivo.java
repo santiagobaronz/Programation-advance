@@ -28,65 +28,69 @@ public class Archivo{
 
     //definimos nuestros atributos
     private int indice = 0;
-    private File fl;
     private static RandomAccessFile archivo = null;
-    private static byte []array = null;
-    private static ByteArrayOutputStream escribir = null;
-    private static ObjectOutputStream salida = null;
-    private static ByteArrayInputStream leer = null;
-    private static ObjectInputStream entrada = null;
+    
     //metodo constructor vacio
     public Archivo() {
     
     }
-    //metodo que nos permite escribir en el archivo
+    
+    // Metodo que nos permite escribir en el archivo
     public void EscribirEnArchivo() throws FileNotFoundException, IOException{
-        //creacion del objeto
+        
+        //Traemos el array desde el controlador
         Controlador control = new Controlador();
         ArrayList<Participante> array = control.listaInscritos;
-        //permitir seleccionar la ubicación de nuestro archivo
-        JOptionPane.showMessageDialog(null, "A continuación seleccione el archivo txt en el que desea guardar la infomación");
-        JFileChooser fc = new JFileChooser(System.getProperty("user.dir"));   
-        fc.showOpenDialog(fc);
-        String archivo1 = fc.getSelectedFile().getAbsolutePath();
         
-        //manejo de excepcion al momento de escribir en el archivo
-        try(RandomAccessFile archivo = new RandomAccessFile(archivo1, "rw")){
-            for (int i = 0; i < array.size(); i++) {
-                if(archivo.length() != 0){
-                    archivo.seek(archivo.length());
+        // Permitir seleccionar la ubicación de nuestro archivo (No se hace necesario usar 
+        // el acrhivo.close() debido a que el try catch lo hace por defecto)
+        
+        try{
+            JOptionPane.showMessageDialog(null, "A continuación seleccione el archivo txt en el que desea guardar la infomación (database.txt)");
+            JFileChooser fc = new JFileChooser(System.getProperty("user.dir"));   
+            fc.showOpenDialog(fc);
+            String archivo1 = fc.getSelectedFile().getAbsolutePath();
+
+            // Manejo de excepcion al momento de escribir en el archivo
+            try(RandomAccessFile archivo = new RandomAccessFile(archivo1, "rw")){
+                for (int i = 0; i < array.size(); i++) {
+                    if(archivo.length() != 0){
+                        archivo.seek(archivo.length());
+                    }
+
+                    String id = String.valueOf(i);
+
+
+                    StringBuffer sb_id = new StringBuffer(id);
+                    sb_id.setLength(2);
+                    archivo.writeChars(sb_id.toString());
+
+                    StringBuffer sb_nombre = new StringBuffer(array.get(i).getNombreCompleto());
+                    sb_nombre.setLength(25);
+                    archivo.writeChars(sb_nombre.toString());
+
+                    StringBuffer sb_cedula = new StringBuffer(array.get(i).getCedula());
+                    sb_cedula.setLength(15);
+                    archivo.writeChars(sb_cedula.toString());
+
+                    StringBuffer sb_conferencia = new StringBuffer(array.get(i).getConferencia());
+                    sb_conferencia.setLength(25);
+                    archivo.writeChars(sb_conferencia + "\r");
+                    indice++;
                 }
 
-                String id = String.valueOf(i);
+                archivo.writeChars(" --------------------------------------------------------- \r");
+                JOptionPane.showMessageDialog(null, "Los datos se han guardado en el archivo de texto. Gracias por usar el aplicativo!");
+                System.exit(0);
 
-
-                StringBuffer sb_id = new StringBuffer(id);
-                sb_id.setLength(2);
-                archivo.writeChars(sb_id.toString());
-
-                StringBuffer sb_nombre = new StringBuffer(array.get(i).getNombreCompleto());
-                sb_nombre.setLength(25);
-                archivo.writeChars(sb_nombre.toString());
-
-                StringBuffer sb_cedula = new StringBuffer(array.get(i).getCedula());
-                sb_cedula.setLength(15);
-                archivo.writeChars(sb_cedula.toString());
-
-                StringBuffer sb_conferencia = new StringBuffer(array.get(i).getConferencia());
-                sb_conferencia.setLength(25);
-                archivo.writeChars(sb_conferencia + "\r");
-                indice++;
+            }catch(Exception e){
+                //Muestra del posible error
+                JOptionPane.showMessageDialog(null, "Hay un error que no permite escribir los datos");
             }
-            
-            archivo.writeChars(" -------------------------------------------------- \r");
-            
         }catch(Exception e){
-            //muestra del posible error
-            JOptionPane.showMessageDialog(null, "Hay un error que no permite escribir los datos");
+            //Muestra del posible error
+                JOptionPane.showMessageDialog(null, "No se seleccionó ningún archivo de texto, intente de nuevo.");
         }
-
-       
-        
     }
         
 }  //fin de la clase
