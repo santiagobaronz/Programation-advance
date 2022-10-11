@@ -12,13 +12,14 @@ import javax.swing.JButton;
 import javax.swing.JOptionPane;
 /**
  *
- * @author Mauricio
+ * @author Mauricio Sanchez, Santiago Baron y Sebastian Yepes
  */
 public class Vista extends javax.swing.JFrame {
 
     /**
      * Creates new form Vista
      */
+    //metodo constructor
     public Vista() {
         initComponents();
         setLocationRelativeTo(null);
@@ -420,6 +421,7 @@ public class Vista extends javax.swing.JFrame {
     /**
      * @param args the command line arguments
      */
+    //metodo main
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -483,7 +485,7 @@ public class Vista extends javax.swing.JFrame {
     public void hide(boolean b) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
-    
+    //metodo blanquear campos al momento de una nueva inscripción 
     public void blanquearCampos() {
         cedula.setText("");
         nombre.setText("");

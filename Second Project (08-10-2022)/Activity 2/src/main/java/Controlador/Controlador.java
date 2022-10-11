@@ -17,14 +17,14 @@ import javax.swing.JOptionPane;
 
 /**
  *
- * @author Mauricio
+ * @author Mauricio Sanchez, Santiago Baron y Sebastian Yepes
  */
 public class Controlador implements ActionListener {
-
+    //declaramos los atributos
     private Persona modelo;
     private Vista vista;
 
- 
+    //metodo constructor
     public Controlador(Persona modelo, Vista vista) {
         this.modelo = modelo;
         this.vista = vista;
@@ -32,11 +32,11 @@ public class Controlador implements ActionListener {
         this.vista.jButton1.addActionListener(this);
         this.vista.jButton2.addActionListener(this);
     }
-
+    //metodo constructor vacio
     Controlador() {
         
     }
-
+    //metodo iniciar ventana
     public void iniciar() {
         //colocarle un titulo a la ventana
         this.vista.setTitle("Aplicativo para el registro de eventos (Programación Avanzada)");
@@ -48,13 +48,14 @@ public class Controlador implements ActionListener {
     public static ArrayList<Participante> listaInscritos = new ArrayList<>();
 
     @Override
+    //ActionPerformed
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == this.vista.jButton1) {
             String name = this.vista.nombre.getText();
             String user_id = this.vista.cedula.getText();
             
             String option = "";
-            
+            //dependiendo de la seleccion del evento o conferencia se obtiene su texto
             if(this.vista.jRadioButton1.isSelected()){
                 option = this.vista.jRadioButton1.getText();
             }
@@ -82,8 +83,9 @@ public class Controlador implements ActionListener {
             listaInscritos.add(participante);
         }
         
-        
+        //validación
         if (e.getSource() == this.vista.jButton2){
+            //manejo de excepcion al escribir en el archivo
             try {
                 Archivo archivo = new Archivo();
                 archivo.EscribirEnArchivo();

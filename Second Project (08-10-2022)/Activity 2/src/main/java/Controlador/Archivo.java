@@ -20,13 +20,13 @@ import javax.swing.JOptionPane;
 
 /**
  *
- * @author Mauricio
+ * @author Mauricio Sanchez, Santiago Baron y Sebastian Yepes
  */
 
 
 public class Archivo{
 
-   
+    //definimos nuestros atributos
     private int indice = 0;
     private File fl;
     private static RandomAccessFile archivo = null;
@@ -35,21 +35,22 @@ public class Archivo{
     private static ObjectOutputStream salida = null;
     private static ByteArrayInputStream leer = null;
     private static ObjectInputStream entrada = null;
-
+    //metodo constructor vacio
     public Archivo() {
     
     }
-        
+    //metodo que nos permite escribir en el archivo
     public void EscribirEnArchivo() throws FileNotFoundException, IOException{
+        //creacion del objeto
         Controlador control = new Controlador();
         ArrayList<Participante> array = control.listaInscritos;
-        
+        //permitir seleccionar la ubicación de nuestro archivo
         JOptionPane.showMessageDialog(null, "A continuación seleccione el archivo txt en el que desea guardar la infomación");
         JFileChooser fc = new JFileChooser(System.getProperty("user.dir"));   
         fc.showOpenDialog(fc);
         String archivo1 = fc.getSelectedFile().getAbsolutePath();
         
-        
+        //manejo de excepcion al momento de escribir en el archivo
         try(RandomAccessFile archivo = new RandomAccessFile(archivo1, "rw")){
             for (int i = 0; i < array.size(); i++) {
                 if(archivo.length() != 0){
@@ -80,6 +81,7 @@ public class Archivo{
             archivo.writeChars(" -------------------------------------------------- \r");
             
         }catch(Exception e){
+            //muestra del posible error
             JOptionPane.showMessageDialog(null, "Hay un error que no permite escribir los datos");
         }
 

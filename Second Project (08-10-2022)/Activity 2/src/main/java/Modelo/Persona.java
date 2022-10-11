@@ -6,7 +6,7 @@ package Modelo;
 
 /**
  *
- * @author Mauricio
+ * @author Mauricio Sanchez, Santiago Baron y Sebastian Yepes
  */
 public class Persona {
     
@@ -14,11 +14,11 @@ public class Persona {
     private String cedula;
     private String nombreCompleto;
     
-    // Constructor
+    // Constructor vacio
 
     public Persona() {
     }
-    
+    //metodo constructor
     public Persona(String cedula, String nombreCompleto) {
         this.cedula = cedula;
         this.nombreCompleto = nombreCompleto;

@@ -14,15 +14,22 @@ import java.io.InputStreamReader;
 import java.io.RandomAccessFile;
 import javax.swing.JFileChooser;
 
+/**
+ *
+ * @author Mauricio Sanchez, Santiago Baron y Sebastian Yepes
+ */
+
 public class Launcher {
 
     
-
+    //Definimos metodo main 
     public static void main(String[] args) {
+        //creación de objetos
         Persona modelo = new Persona();
         Vista vista = new Vista();
         Controlador control = new Controlador(modelo, vista);
         control.iniciar();
+        //mostramos nuestra ventana
         vista.setVisible(true);
 
         
