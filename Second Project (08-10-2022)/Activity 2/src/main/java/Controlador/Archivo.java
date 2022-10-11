@@ -28,8 +28,6 @@ public class Archivo{
 
    
     private int indice = 0;
-    private long tamreg;
-    private long canreg;
     private File fl;
     private static RandomAccessFile archivo = null;
     private static byte []array = null;
@@ -44,63 +42,49 @@ public class Archivo{
         
     public void EscribirEnArchivo() throws FileNotFoundException, IOException{
         Controlador control = new Controlador();
-        ArrayList<Persona> array = control.listaInscritos;
+        ArrayList<Participante> array = control.listaInscritos;
         
-        System.out.println(array.get(0).getNombreCompleto());
+        JOptionPane.showMessageDialog(null, "A continuación seleccione el archivo txt en el que desea guardar la infomación");
+        JFileChooser fc = new JFileChooser(System.getProperty("user.dir"));   
+        fc.showOpenDialog(fc);
+        String archivo1 = fc.getSelectedFile().getAbsolutePath();
         
         
-
-        
-        
-        try{
-            
-            JOptionPane.showMessageDialog(null, "A continuación seleccione el archivo txt en el que desea guardar la infomación");
-            JFileChooser fc = new JFileChooser(System.getProperty("user.dir"));   
-            fc.showOpenDialog(fc);
-            File archivo1 = fc.getSelectedFile();
-            
-            System.out.print(archivo1.getAbsolutePath());
-        
-            archivo = new RandomAccessFile(archivo1, "rw");
-            
+        try(RandomAccessFile archivo = new RandomAccessFile(archivo1, "rw")){
             for (int i = 0; i < array.size(); i++) {
                 if(archivo.length() != 0){
                     archivo.seek(archivo.length());
                 }
-                archivo.writeInt(indice);
-                archivo.writeChars(array.get(i).getNombreCompleto());
-                archivo.writeChars(array.get(i).getCedula());
-                
+
+                String id = String.valueOf(i);
+
+
+                StringBuffer sb_id = new StringBuffer(id);
+                sb_id.setLength(2);
+                archivo.writeChars(sb_id.toString());
+
+                StringBuffer sb_nombre = new StringBuffer(array.get(i).getNombreCompleto());
+                sb_nombre.setLength(25);
+                archivo.writeChars(sb_nombre.toString());
+
+                StringBuffer sb_cedula = new StringBuffer(array.get(i).getCedula());
+                sb_cedula.setLength(15);
+                archivo.writeChars(sb_cedula.toString());
+
+                StringBuffer sb_conferencia = new StringBuffer(array.get(i).getConferencia());
+                sb_conferencia.setLength(25);
+                archivo.writeChars(sb_conferencia + "\r");
                 indice++;
-                
             }
-            salida.close();
-             
+            
+            archivo.writeChars(" -------------------------------------------------- \r");
+            
         }catch(Exception e){
-            System.out.println("No se encuentra el archivo");
+            JOptionPane.showMessageDialog(null, "Hay un error que no permite escribir los datos");
         }
-        
-        
-        
-        
+
+       
         
     }
         
-
-
-    public void cerrar() {
-        try {
-            archivo.close();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-
-    public static void main(String[] args) {
-        Archivo arch = new Archivo();
-//        arch.escribir();
-        /*arch.leerTodo();*/
-        arch.cerrar();
-    } //fin del main
-
 }  //fin de la clase

@@ -13,6 +13,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -44,7 +45,7 @@ public class Controlador implements ActionListener {
     }
     
     
-    public static ArrayList<Persona> listaInscritos = new ArrayList<>();
+    public static ArrayList<Participante> listaInscritos = new ArrayList<>();
 
     @Override
     public void actionPerformed(ActionEvent e) {
@@ -86,6 +87,8 @@ public class Controlador implements ActionListener {
             try {
                 Archivo archivo = new Archivo();
                 archivo.EscribirEnArchivo();
+                JOptionPane.showMessageDialog(null, "Los datos se han guardado en el archivo de texto. Gracias por usar el aplicativo!");
+                System.exit(0);
             } catch (IOException ex) {
                 Logger.getLogger(Controlador.class.getName()).log(Level.SEVERE, null, ex);
             }
