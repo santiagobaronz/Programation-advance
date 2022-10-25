@@ -4,24 +4,20 @@
  */
 package src.main.java.Controlador;
 
-import Modelo.Queso;
-import Modelo.Usuario;
-import Vista.Consultar;
-import Vista.Eliminar;
-import Vista.Ingresar;
-import Vista.Login;
-import Vista.Menu;
-import Vista.Modificar;
+import src.main.java.Modelo.Queso;
+import src.main.java.Modelo.Usuario;
+import src.main.java.Vista.Consultar;
+import src.main.java.Vista.Ingresar;
+import src.main.java.Vista.Login;
+import src.main.java.Vista.Menu;
+import src.main.java.Vista.Modificar;
 import java.awt.event.ActionListener;
 
-import java.awt.event.*;
 import java.awt.event.ActionEvent;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import src.main.java.Controlador.Validacion;
+import src.main.java.Vista.Eliminar;
 
 /**
  *
@@ -63,8 +59,8 @@ public class Controlador implements ActionListener {
         this.vista2.eliminarBTN.addActionListener(this);
         this.vista2.cerrarBTN.addActionListener(this);
         // INGRESAR
-        this.vista3.jButton1.addActionListener(this);
-        this.vista3.jButton2.addActionListener(this);
+        this.vista3.IngresarBTN.addActionListener(this);
+        this.vista3.limpiarBTN.addActionListener(this);
         this.vista3.jButton3.addActionListener(this);
         // CONSULTA
         this.vista4.jButton1.addActionListener(this);
@@ -94,6 +90,8 @@ public class Controlador implements ActionListener {
         // Se le indica la posicion --> null para que la ventana inicie en //la posicion 0 es decir en el centro de la pantalla
         this.vista1.setLocationRelativeTo(null);
     }
+    
+    
 
     @Override
     public void actionPerformed(ActionEvent e) {
@@ -107,15 +105,10 @@ public class Controlador implements ActionListener {
             } catch (IOException ex) {
                 JOptionPane.showMessageDialog(null, "No se pudo hacer la validacion de usuario");
             }
-
         }
         
-        
-       
-        
+        if (e.getSource() == this.vista3.IngresarBTN){
+
+        }
     }
-    
-    
-    
-    
 }

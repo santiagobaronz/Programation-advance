@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package Vista;
+package src.main.java.Vista;
 
 import java.awt.Image;
 import java.awt.Toolkit;
@@ -75,6 +75,8 @@ public class Modificar extends javax.swing.JFrame {
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel2.setBackground(new java.awt.Color(250, 204, 0));
+        jPanel2.setPreferredSize(new java.awt.Dimension(1330, 483));
+        jPanel2.setRequestFocusEnabled(false);
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jButton1.setBackground(new java.awt.Color(0, 0, 0));
@@ -86,7 +88,7 @@ public class Modificar extends javax.swing.JFrame {
                 jButton1ActionPerformed(evt);
             }
         });
-        jPanel2.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 390, 140, -1));
+        jPanel2.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 390, 140, -1));
 
         jButton2.setBackground(new java.awt.Color(0, 0, 0));
         jButton2.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
@@ -97,7 +99,7 @@ public class Modificar extends javax.swing.JFrame {
                 jButton2ActionPerformed(evt);
             }
         });
-        jPanel2.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 390, 150, -1));
+        jPanel2.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 450, 150, -1));
 
         jButton3.setBackground(new java.awt.Color(0, 0, 0));
         jButton3.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
@@ -108,7 +110,7 @@ public class Modificar extends javax.swing.JFrame {
                 jButton3ActionPerformed(evt);
             }
         });
-        jPanel2.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 390, 130, -1));
+        jPanel2.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 450, 130, -1));
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel3.setText("Tipo de leche:");
@@ -155,7 +157,7 @@ public class Modificar extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(jTable1);
 
-        jPanel2.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 80, 420, 290));
+        jPanel2.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 80, 870, 540));
 
         jButton6.setBackground(new java.awt.Color(0, 0, 0));
         jButton6.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
@@ -166,7 +168,7 @@ public class Modificar extends javax.swing.JFrame {
                 jButton6ActionPerformed(evt);
             }
         });
-        jPanel2.add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 390, 140, -1));
+        jPanel2.add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 390, 140, -1));
 
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccione", "Leche de vaca", "Leche de oveja", "Leche de cabra", "Mezcla de leches" }));
         jComboBox1.addActionListener(new java.awt.event.ActionListener() {
@@ -209,7 +211,7 @@ public class Modificar extends javax.swing.JFrame {
         });
         jPanel2.add(jComboBox7, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 140, 150, -1));
 
-        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 890, 440));
+        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1330, 650));
 
         jButton4.setBackground(new java.awt.Color(0, 0, 0));
         jButton4.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N

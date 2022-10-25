@@ -3,11 +3,14 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package src.main.java.Controlador;
-
-import Modelo.Queso;
-import Modelo.Usuario;
-import Vista.Login;
-import Vista.*;
+import src.main.java.Modelo.Queso;
+import src.main.java.Modelo.Usuario;
+import src.main.java.Vista.Login;
+import src.main.java.Vista.Consultar;
+import src.main.java.Vista.Eliminar;
+import src.main.java.Vista.Ingresar;
+import src.main.java.Vista.Menu;
+import src.main.java.Vista.Modificar;
 
 /**
  *

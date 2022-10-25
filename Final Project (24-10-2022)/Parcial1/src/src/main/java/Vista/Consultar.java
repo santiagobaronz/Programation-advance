@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package Vista;
+package src.main.java.Vista;
 
 import java.awt.Image;
 import java.awt.Toolkit;
@@ -91,7 +91,7 @@ public class Consultar extends javax.swing.JFrame {
                 jButton1ActionPerformed(evt);
             }
         });
-        jPanel2.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 400, 140, -1));
+        jPanel2.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 390, 180, -1));
 
         jButton2.setBackground(new java.awt.Color(0, 0, 0));
         jButton2.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
@@ -102,7 +102,7 @@ public class Consultar extends javax.swing.JFrame {
                 jButton2ActionPerformed(evt);
             }
         });
-        jPanel2.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 400, 150, -1));
+        jPanel2.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 390, 190, -1));
 
         jButton3.setBackground(new java.awt.Color(0, 0, 0));
         jButton3.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
@@ -113,25 +113,25 @@ public class Consultar extends javax.swing.JFrame {
                 jButton3ActionPerformed(evt);
             }
         });
-        jPanel2.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 400, 130, -1));
+        jPanel2.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 450, 310, -1));
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel3.setText("Tipo de leche:");
-        jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 140, -1, -1));
+        jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 140, -1, -1));
 
         jLabel8.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel8.setText("Tratamiento de la leche:");
-        jPanel2.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 340, -1, -1));
+        jPanel2.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 340, -1, -1));
 
         jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccione", "Blando", "Semiblando", "Semiduro", "Duro", "Extraduro" }));
-        jPanel2.add(jComboBox2, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 260, 150, -1));
+        jPanel2.add(jComboBox2, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 260, 150, -1));
 
         jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel4.setText("Contenido graso:");
-        jPanel2.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 180, -1, -1));
+        jPanel2.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 180, -1, -1));
 
         jComboBox3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccione", "Fresco o dulce", "Poco Pronunciado", "Pronunciado", "Fuerte", "Muy fuerte" }));
-        jPanel2.add(jComboBox3, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 300, 150, -1));
+        jPanel2.add(jComboBox3, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 300, 150, -1));
 
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccione", "Leche de vaca", "Leche de oveja", "Leche de cabra", "Mezcla de leches" }));
         jComboBox1.addActionListener(new java.awt.event.ActionListener() {
@@ -139,30 +139,31 @@ public class Consultar extends javax.swing.JFrame {
                 jComboBox1ActionPerformed(evt);
             }
         });
-        jPanel2.add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 100, 150, -1));
+        jPanel2.add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 100, 150, -1));
 
         jLabel5.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel5.setText("Maduración:");
-        jPanel2.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 220, -1, -1));
+        jPanel2.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 220, -1, -1));
 
         jComboBox4.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccione", "Microfiltrada", "Termizada", "Pasteurizada" }));
-        jPanel2.add(jComboBox4, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 340, 150, -1));
+        jPanel2.add(jComboBox4, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 340, 150, -1));
 
         jLabel6.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel6.setText("Textura:");
-        jPanel2.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 260, -1, -1));
+        jPanel2.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 260, -1, -1));
 
         jLabel1.setFont(new java.awt.Font("Bell MT", 1, 36)); // NOI18N
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("CONSULTAR");
-        jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 20, -1, -1));
+        jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 20, 1330, -1));
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel2.setText("Tipo de queso:");
-        jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 100, -1, -1));
+        jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 100, -1, -1));
 
         jLabel7.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel7.setText("Gusto:");
-        jPanel2.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 300, -1, -1));
+        jPanel2.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 300, -1, -1));
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -177,7 +178,7 @@ public class Consultar extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(jTable1);
 
-        jPanel2.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 80, 420, 290));
+        jPanel2.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 80, 840, 320));
 
         jComboBox5.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccione", "Leche de vaca", "Leche de oveja", "Leche de cabra", "Mezcla de leches" }));
         jComboBox5.addActionListener(new java.awt.event.ActionListener() {
@@ -185,7 +186,7 @@ public class Consultar extends javax.swing.JFrame {
                 jComboBox5ActionPerformed(evt);
             }
         });
-        jPanel2.add(jComboBox5, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 140, 150, -1));
+        jPanel2.add(jComboBox5, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 140, 150, -1));
 
         jComboBox6.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccione", "Leche de vaca", "Leche de oveja", "Leche de cabra", "Mezcla de leches" }));
         jComboBox6.addActionListener(new java.awt.event.ActionListener() {
@@ -193,7 +194,7 @@ public class Consultar extends javax.swing.JFrame {
                 jComboBox6ActionPerformed(evt);
             }
         });
-        jPanel2.add(jComboBox6, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 180, 150, -1));
+        jPanel2.add(jComboBox6, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 180, 150, -1));
 
         jComboBox7.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccione", "Leche de vaca", "Leche de oveja", "Leche de cabra", "Mezcla de leches" }));
         jComboBox7.addActionListener(new java.awt.event.ActionListener() {
@@ -201,9 +202,9 @@ public class Consultar extends javax.swing.JFrame {
                 jComboBox7ActionPerformed(evt);
             }
         });
-        jPanel2.add(jComboBox7, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 220, 150, -1));
+        jPanel2.add(jComboBox7, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 220, 150, -1));
 
-        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 860, 450));
+        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1330, 530));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents

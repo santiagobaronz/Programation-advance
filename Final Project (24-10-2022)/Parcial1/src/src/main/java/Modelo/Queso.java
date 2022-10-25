@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package Modelo;
+package src.main.java.Modelo;
 
 /**
  *
@@ -12,15 +12,15 @@ public class Queso {
     
     private String tipoDeQueso;
     private String tipoDeLeche;
-    private int grasa;
-    private int maduracion;
+    private String grasa;
+    private String maduracion;
     private String textura;
     private String gusto;
     private String tratamiento;
     
     
     // CONTRUCTOR
-    public Queso(String tipoDeQueso, String tipoDeLeche, int grasa, int maduracion, String textura, String gusto, String tratamiento) {
+    public Queso(String tipoDeQueso, String tipoDeLeche, String grasa, String maduracion, String textura, String gusto, String tratamiento) {
         this.tipoDeQueso = tipoDeQueso;
         this.tipoDeLeche = tipoDeLeche;
         this.grasa = grasa;
@@ -51,19 +51,19 @@ public class Queso {
         this.tipoDeLeche = tipoDeLeche;
     }
 
-    public int getGrasa() {
+    public String getGrasa() {
         return grasa;
     }
 
-    public void setGrasa(int grasa) {
+    public void setGrasa(String grasa) {
         this.grasa = grasa;
     }
 
-    public int getMaduracion() {
+    public String getMaduracion() {
         return maduracion;
     }
 
-    public void setMaduracion(int maduracion) {
+    public void setMaduracion(String maduracion) {
         this.maduracion = maduracion;
     }
 

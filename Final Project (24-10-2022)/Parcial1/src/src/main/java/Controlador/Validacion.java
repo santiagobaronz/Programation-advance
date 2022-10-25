@@ -4,7 +4,7 @@
  */
 package src.main.java.Controlador;
 
-import Vista.Menu;
+import src.main.java.Vista.Menu;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileReader;

@@ -2,10 +2,12 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package Vista;
+package src.main.java.Vista;
 
 import java.awt.Image;
 import java.awt.Toolkit;
+import javax.swing.JOptionPane;
+import src.main.java.Controlador.DAO;
 
 /**
  *
@@ -28,13 +30,13 @@ public class Ingresar extends javax.swing.JFrame {
         return retValue;
     }
     public final void LimpiarCampos(){
-        jComboBox1.setSelectedIndex(0);
-        jComboBox2.setSelectedIndex(0);
-        jComboBox3.setSelectedIndex(0);
-        jComboBox4.setSelectedIndex(0);
-        jComboBox5.setSelectedIndex(0);
-        jComboBox6.setSelectedIndex(0);
-        jComboBox7.setSelectedIndex(0);
+        maduracion.setSelectedIndex(0);
+        textura.setSelectedIndex(0);
+        gusto.setSelectedIndex(0);
+        tratamiento.setSelectedIndex(0);
+        tipo_queso.setSelectedIndex(0);
+        tipo_leche.setSelectedIndex(0);
+        contenido_graso.setSelectedIndex(0);
     }
     
 
@@ -56,16 +58,16 @@ public class Ingresar extends javax.swing.JFrame {
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        IngresarBTN = new javax.swing.JButton();
+        limpiarBTN = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
-        jComboBox2 = new javax.swing.JComboBox<>();
-        jComboBox3 = new javax.swing.JComboBox<>();
-        jComboBox4 = new javax.swing.JComboBox<>();
-        jComboBox5 = new javax.swing.JComboBox<>();
-        jComboBox6 = new javax.swing.JComboBox<>();
-        jComboBox7 = new javax.swing.JComboBox<>();
-        jComboBox1 = new javax.swing.JComboBox<>();
+        textura = new javax.swing.JComboBox<>();
+        gusto = new javax.swing.JComboBox<>();
+        tratamiento = new javax.swing.JComboBox<>();
+        tipo_queso = new javax.swing.JComboBox<>();
+        tipo_leche = new javax.swing.JComboBox<>();
+        contenido_graso = new javax.swing.JComboBox<>();
+        maduracion = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("INGRESO");
@@ -107,22 +109,27 @@ public class Ingresar extends javax.swing.JFrame {
         jLabel8.setText("Tratamiento de la leche:");
         jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 170, -1, -1));
 
-        jButton1.setBackground(new java.awt.Color(0, 0, 0));
-        jButton1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(255, 255, 255));
-        jButton1.setText("Ingresar");
-        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 270, 110, -1));
-
-        jButton2.setBackground(new java.awt.Color(0, 0, 0));
-        jButton2.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jButton2.setForeground(new java.awt.Color(255, 255, 255));
-        jButton2.setText("Limpiar");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        IngresarBTN.setBackground(new java.awt.Color(0, 0, 0));
+        IngresarBTN.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        IngresarBTN.setForeground(new java.awt.Color(255, 255, 255));
+        IngresarBTN.setText("Ingresar");
+        IngresarBTN.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                IngresarBTNActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 270, 110, -1));
+        jPanel1.add(IngresarBTN, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 270, 110, -1));
+
+        limpiarBTN.setBackground(new java.awt.Color(0, 0, 0));
+        limpiarBTN.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        limpiarBTN.setForeground(new java.awt.Color(255, 255, 255));
+        limpiarBTN.setText("Limpiar");
+        limpiarBTN.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                limpiarBTNActionPerformed(evt);
+            }
+        });
+        jPanel1.add(limpiarBTN, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 270, 110, -1));
 
         jButton3.setBackground(new java.awt.Color(0, 0, 0));
         jButton3.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
@@ -135,46 +142,46 @@ public class Ingresar extends javax.swing.JFrame {
         });
         jPanel1.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 270, 90, -1));
 
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccione", "Blando", "Semiblando", "Semiduro", "Duro", "Extraduro" }));
-        jPanel1.add(jComboBox2, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 90, 150, -1));
+        textura.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccione", "Blando", "Semiblando", "Semiduro", "Duro", "Extraduro" }));
+        jPanel1.add(textura, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 90, 150, -1));
 
-        jComboBox3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccione", "Fresco o dulce", "Poco Pronunciado", "Pronunciado", "Fuerte", "Muy fuerte" }));
-        jPanel1.add(jComboBox3, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 130, 150, -1));
+        gusto.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccione", "Fresco o dulce", "Poco Pronunciado", "Pronunciado", "Fuerte", "Muy fuerte" }));
+        jPanel1.add(gusto, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 130, 150, -1));
 
-        jComboBox4.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccione", "Microfiltrada", "Termizada", "Pasteurizada" }));
-        jPanel1.add(jComboBox4, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 170, 150, -1));
+        tratamiento.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccione", "Microfiltrada", "Termizada", "Pasteurizada" }));
+        jPanel1.add(tratamiento, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 170, 150, -1));
 
-        jComboBox5.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccione", "Leche de vaca", "Leche de oveja", "Leche de cabra", "Mezcla de leches" }));
-        jComboBox5.addActionListener(new java.awt.event.ActionListener() {
+        tipo_queso.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccione", "Leche de vaca", "Leche de oveja", "Leche de cabra", "Mezcla de leches" }));
+        tipo_queso.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBox5ActionPerformed(evt);
+                tipo_quesoActionPerformed(evt);
             }
         });
-        jPanel1.add(jComboBox5, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 90, 150, -1));
+        jPanel1.add(tipo_queso, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 90, 150, -1));
 
-        jComboBox6.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccione", "Leche de vaca", "Leche de oveja", "Leche de cabra", "Mezcla de leches" }));
-        jComboBox6.addActionListener(new java.awt.event.ActionListener() {
+        tipo_leche.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccione", "Leche de vaca", "Leche de oveja", "Leche de cabra", "Mezcla de leches" }));
+        tipo_leche.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBox6ActionPerformed(evt);
+                tipo_lecheActionPerformed(evt);
             }
         });
-        jPanel1.add(jComboBox6, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 130, 150, -1));
+        jPanel1.add(tipo_leche, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 130, 150, -1));
 
-        jComboBox7.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccione", "Leche de vaca", "Leche de oveja", "Leche de cabra", "Mezcla de leches" }));
-        jComboBox7.addActionListener(new java.awt.event.ActionListener() {
+        contenido_graso.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccione", "Leche de vaca", "Leche de oveja", "Leche de cabra", "Mezcla de leches" }));
+        contenido_graso.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBox7ActionPerformed(evt);
+                contenido_grasoActionPerformed(evt);
             }
         });
-        jPanel1.add(jComboBox7, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 170, 150, -1));
+        jPanel1.add(contenido_graso, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 170, 150, -1));
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccione", "Leche de vaca", "Leche de oveja", "Leche de cabra", "Mezcla de leches" }));
-        jComboBox1.addActionListener(new java.awt.event.ActionListener() {
+        maduracion.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccione", "Leche de vaca", "Leche de oveja", "Leche de cabra", "Mezcla de leches" }));
+        maduracion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBox1ActionPerformed(evt);
+                maduracionActionPerformed(evt);
             }
         });
-        jPanel1.add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 210, 150, -1));
+        jPanel1.add(maduracion, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 210, 150, -1));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 770, 320));
 
@@ -188,26 +195,47 @@ public class Ingresar extends javax.swing.JFrame {
         setVisible(false);
     }//GEN-LAST:event_jButton3ActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void limpiarBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_limpiarBTNActionPerformed
         // TODO add your handling code here:
         LimpiarCampos();
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_limpiarBTNActionPerformed
 
-    private void jComboBox5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox5ActionPerformed
+    private void tipo_quesoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tipo_quesoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jComboBox5ActionPerformed
+    }//GEN-LAST:event_tipo_quesoActionPerformed
 
-    private void jComboBox6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox6ActionPerformed
+    private void tipo_lecheActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tipo_lecheActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jComboBox6ActionPerformed
+    }//GEN-LAST:event_tipo_lecheActionPerformed
 
-    private void jComboBox7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox7ActionPerformed
+    private void contenido_grasoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_contenido_grasoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jComboBox7ActionPerformed
+    }//GEN-LAST:event_contenido_grasoActionPerformed
 
-    private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
+    private void maduracionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_maduracionActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jComboBox1ActionPerformed
+    }//GEN-LAST:event_maduracionActionPerformed
+
+    private void IngresarBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_IngresarBTNActionPerformed
+
+            String tipo_quesoS, tipo_lecheS, contenido_grasoS, maduracionS, texturaS,
+                    gustoS, tratamientoS;
+            
+            tipo_quesoS = (String) this.tipo_queso.getSelectedItem();
+            tipo_lecheS = (String) this.tipo_leche.getSelectedItem();
+            contenido_grasoS = (String) this.contenido_graso.getSelectedItem();
+            maduracionS = (String) this.maduracion.getSelectedItem();
+            texturaS = (String) this.textura.getSelectedItem();
+            gustoS = (String) this.gusto.getSelectedItem();
+            tratamientoS = (String) this.tratamiento.getSelectedItem();
+            
+            
+            DAO guardar = new DAO();
+            guardar.guardarQuesos(tipo_quesoS, tipo_lecheS, contenido_grasoS, maduracionS, texturaS, gustoS, tratamientoS);
+            
+            
+                    
+    }//GEN-LAST:event_IngresarBTNActionPerformed
 
     /**
      * @param args the command line arguments
@@ -248,16 +276,10 @@ public class Ingresar extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    public javax.swing.JButton jButton1;
-    public javax.swing.JButton jButton2;
+    public javax.swing.JButton IngresarBTN;
+    public javax.swing.JComboBox<String> contenido_graso;
+    public javax.swing.JComboBox<String> gusto;
     public javax.swing.JButton jButton3;
-    public javax.swing.JComboBox<String> jComboBox1;
-    public javax.swing.JComboBox<String> jComboBox2;
-    public javax.swing.JComboBox<String> jComboBox3;
-    public javax.swing.JComboBox<String> jComboBox4;
-    public javax.swing.JComboBox<String> jComboBox5;
-    public javax.swing.JComboBox<String> jComboBox6;
-    public javax.swing.JComboBox<String> jComboBox7;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -267,5 +289,11 @@ public class Ingresar extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel1;
+    public javax.swing.JButton limpiarBTN;
+    public javax.swing.JComboBox<String> maduracion;
+    public javax.swing.JComboBox<String> textura;
+    public javax.swing.JComboBox<String> tipo_leche;
+    public javax.swing.JComboBox<String> tipo_queso;
+    public javax.swing.JComboBox<String> tratamiento;
     // End of variables declaration//GEN-END:variables
 }

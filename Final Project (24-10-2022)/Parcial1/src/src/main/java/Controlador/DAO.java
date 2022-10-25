@@ -3,14 +3,15 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package src.main.java.Controlador;
+import java.beans.Statement;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.table.DefaultTableModel;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 /**
@@ -19,14 +20,13 @@ import javax.swing.JOptionPane;
  */
 public class DAO {
     
-    
+    Statement consulta = null;
     String db = "quesos";
     String url = "jdbc:mysql://localhost/";
     String user="root";
     String password="";
     String driver="com.mysql.cj.jdbc.Driver";
     Connection cx;
-    
     
     public DAO(){
         
@@ -105,6 +105,29 @@ public class DAO {
         
         // Devuelve el modelo con el que se rellenaran las tablas
         return modelo;
+    }
+
+    public void guardarQuesos(String tipo_queso, String tipo_leche, String materia_grasa, String maduracion, String textura, String gusto, String tratamiento) {
+        
+        String SQL = "INSERT INTO quesos (tipo_queso, tipo_leche, contenido_materia_grasa, maduracion, textura, gusto, tratamiento_leche) "
+                + "VALUES ('"+tipo_queso+"', '"+tipo_leche+"', '"+materia_grasa+"', '"+maduracion+"', '"+textura+"', '"+gusto+"', '"+tratamiento+"')";
+        
+        conectar();
+
+        try {
+            java.sql.Statement consulta = cx.createStatement();
+            consulta.executeUpdate(SQL);
+            JOptionPane.showMessageDialog(null,"El queso se ha guardado correctamente");
+            
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null,"Hubo un error al guardar el queso");
+        }
+        
+        
+        
+        
+        
+        
     }
     
     
