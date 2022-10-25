@@ -14,7 +14,11 @@ import src.main.java.Vista.Modificar;
 import java.awt.event.ActionListener;
 
 import java.awt.event.ActionEvent;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.io.InputStream;
+import java.util.Properties;
 import javax.swing.JOptionPane;
 import src.main.java.Controlador.Validacion;
 import src.main.java.Vista.Eliminar;
@@ -91,7 +95,67 @@ public class Controlador implements ActionListener {
         this.vista1.setLocationRelativeTo(null);
     }
     
-    
+    public void TipoQuesoArray(String tq1, String tq2, String tq3, String tq4, 
+            String tq5, String tq6, String tq7, String tq8, String tq9, String tq10, 
+            String tq11, String tq12, String tq13, String tq14, String tq15, String tq16, 
+            String tq17, String tq18, String tq19, String tq20, String tq21, String tq22, 
+            String tq23, String tq24, String tq25, String tq26, String tq27, String tq28, 
+            String tq29, String tq30, String tq31, String tq32, String tq33, String tq34, 
+            String tq35, String tq36) throws FileNotFoundException, IOException {
+        
+        try(InputStream lectura = new FileInputStream("properties.properties")) {
+            
+            Properties propiedades = new Properties();
+            propiedades.load(lectura);
+            String tipoq1 = propiedades.getProperty("TIPO_DE_QUESO_1");
+            String tipoq2 = propiedades.getProperty("TIPO_DE_QUESO_2");
+            String tipoq3 = propiedades.getProperty("TIPO_DE_QUESO_3");
+            String tipoq4 = propiedades.getProperty("TIPO_DE_QUESO_4");
+            String tipoq5 = propiedades.getProperty("TIPO_DE_QUESO_5");
+            String tipoq6 = propiedades.getProperty("TIPO_DE_QUESO_6");
+            String tipoq7 = propiedades.getProperty("TIPO_DE_QUESO_7");
+            String tipoq8 = propiedades.getProperty("TIPO_DE_QUESO_8");
+            String tipoq9 = propiedades.getProperty("TIPO_DE_QUESO_9");
+            String tipoq10 = propiedades.getProperty("TIPO_DE_QUESO_10");
+            String tipoq11 = propiedades.getProperty("TIPO_DE_QUESO_11");
+            String tipoq12 = propiedades.getProperty("TIPO_DE_QUESO_12");
+            String tipoq13 = propiedades.getProperty("TIPO_DE_QUESO_13");
+            String tipoq14 = propiedades.getProperty("TIPO_DE_QUESO_14");
+            String tipoq15 = propiedades.getProperty("TIPO_DE_QUESO_15");
+            String tipoq16 = propiedades.getProperty("TIPO_DE_QUESO_16");
+            String tipoq17 = propiedades.getProperty("TIPO_DE_QUESO_17");
+            String tipoq18 = propiedades.getProperty("TIPO_DE_QUESO_18");
+            String tipoq19 = propiedades.getProperty("TIPO_DE_QUESO_19");
+            String tipoq20 = propiedades.getProperty("TIPO_DE_QUESO_20");
+            String tipoq21 = propiedades.getProperty("TIPO_DE_QUESO_21");
+            String tipoq22 = propiedades.getProperty("TIPO_DE_QUESO_22");
+            String tipoq23 = propiedades.getProperty("TIPO_DE_QUESO_23");
+            String tipoq24 = propiedades.getProperty("TIPO_DE_QUESO_24");
+            String tipoq25 = propiedades.getProperty("TIPO_DE_QUESO_25");
+            String tipoq26 = propiedades.getProperty("TIPO_DE_QUESO_26");
+            String tipoq27 = propiedades.getProperty("TIPO_DE_QUESO_27");
+            String tipoq28 = propiedades.getProperty("TIPO_DE_QUESO_28");
+            String tipoq29 = propiedades.getProperty("TIPO_DE_QUESO_29");
+            String tipoq30 = propiedades.getProperty("TIPO_DE_QUESO_30");
+            String tipoq31 = propiedades.getProperty("TIPO_DE_QUESO_31");
+            String tipoq32 = propiedades.getProperty("TIPO_DE_QUESO_32");
+            String tipoq33 = propiedades.getProperty("TIPO_DE_QUESO_33");
+            String tipoq34 = propiedades.getProperty("TIPO_DE_QUESO_34");
+            String tipoq35 = propiedades.getProperty("TIPO_DE_QUESO_35");
+            String tipoq36 = propiedades.getProperty("TIPO_DE_QUESO_36");
+            
+            
+            String[] arrayTipoQueso = {tipoq1, tipoq2, tipoq3, tipoq4, tipoq5, 
+                tipoq6, tipoq7, tipoq8, tipoq9, tipoq10, tipoq11, tipoq12, tipoq13, 
+                tipoq14, tipoq15, tipoq16, tipoq17, tipoq18, tipoq19, tipoq20, tipoq21, 
+                tipoq22, tipoq23, tipoq24, tipoq25, tipoq26, tipoq27, tipoq28, tipoq29, 
+                tipoq30, tipoq31, tipoq32, tipoq33, tipoq34, tipoq35, tipoq36};
+            
+            } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "No se pudo leer el archivo");
+        }
+
+    }
 
     @Override
     public void actionPerformed(ActionEvent e) {
@@ -105,10 +169,6 @@ public class Controlador implements ActionListener {
             } catch (IOException ex) {
                 JOptionPane.showMessageDialog(null, "No se pudo hacer la validacion de usuario");
             }
-        }
-        
-        if (e.getSource() == this.vista3.IngresarBTN){
-
         }
     }
 }

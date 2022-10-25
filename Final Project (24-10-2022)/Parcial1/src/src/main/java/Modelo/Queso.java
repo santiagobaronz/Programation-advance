@@ -18,6 +18,13 @@ public class Queso {
     private String gusto;
     private String tratamiento;
     
+    private String[] tipo_queso;
+    private String[] tipo_leche;
+    private String[] materia_grasa;
+    private String[] maduracionA;
+    private String[] texturaA;
+    private String[] intensidad;
+    private String[] filtrado;
     
     // CONTRUCTOR
     public Queso(String tipoDeQueso, String tipoDeLeche, String grasa, String maduracion, String textura, String gusto, String tratamiento) {
@@ -89,6 +96,62 @@ public class Queso {
 
     public void setTratamiento(String tratamiento) {
         this.tratamiento = tratamiento;
+    }
+
+    public String[] getTipo_queso() {
+        return tipo_queso;
+    }
+
+    public void setTipo_queso(String[] tipo_queso) {
+        this.tipo_queso = tipo_queso;
+    }
+
+    public String[] getTipo_leche() {
+        return tipo_leche;
+    }
+
+    public void setTipo_leche(String[] tipo_leche) {
+        this.tipo_leche = tipo_leche;
+    }
+
+    public String[] getMateria_grasa() {
+        return materia_grasa;
+    }
+
+    public void setMateria_grasa(String[] materia_grasa) {
+        this.materia_grasa = materia_grasa;
+    }
+
+    public String[] getMaduracionA() {
+        return maduracionA;
+    }
+
+    public void setMaduracionA(String[] maduracionA) {
+        this.maduracionA = maduracionA;
+    }
+
+    public String[] getTexturaA() {
+        return texturaA;
+    }
+
+    public void setTexturaA(String[] texturaA) {
+        this.texturaA = texturaA;
+    }
+
+    public String[] getIntensidad() {
+        return intensidad;
+    }
+
+    public void setIntensidad(String[] intensidad) {
+        this.intensidad = intensidad;
+    }
+
+    public String[] getFiltrado() {
+        return filtrado;
+    }
+
+    public void setFiltrado(String[] filtrado) {
+        this.filtrado = filtrado;
     }
     
     

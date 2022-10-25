@@ -6,13 +6,16 @@ package src.main.java.Vista;
 
 import java.awt.Image;
 import java.awt.Toolkit;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+import src.main.java.Controlador.DAO;
 
 /**
  *
  * @author Mauricio
  */
 public class Eliminar extends javax.swing.JFrame {
-
+    
     /**
      * Creates new form Eliminar
      */
@@ -20,6 +23,7 @@ public class Eliminar extends javax.swing.JFrame {
         initComponents();
         setLocationRelativeTo(null);
         LimpiarCampos();
+        mostrarQuesos();
     }
     @Override
     public Image getIconImage(){
@@ -122,8 +126,9 @@ public class Eliminar extends javax.swing.JFrame {
         jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 260, -1, -1));
 
         jLabel1.setFont(new java.awt.Font("Bell MT", 1, 36)); // NOI18N
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("ELIMINAR");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 20, -1, -1));
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 20, 1340, -1));
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel2.setText("Tipo de queso:");
@@ -200,13 +205,21 @@ public class Eliminar extends javax.swing.JFrame {
         });
         jPanel1.add(jComboBox7, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 220, 150, -1));
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1340, 710));
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1350, 710));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+        
+
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
+
+        String idParaEliminar = JOptionPane.showInputDialog("¿Cuál es el id del queso que quiere eliminar?");
+        JOptionPane.showMessageDialog(null,"Se borrará el queso con id: " + idParaEliminar);
+
+        DAO eliminar = new DAO();
+        eliminar.eliminarQueso(idParaEliminar);
+
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
@@ -242,6 +255,14 @@ public class Eliminar extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jComboBox7ActionPerformed
 
+    public void mostrarQuesos(){
+    
+        DAO consultar = new DAO();
+        DefaultTableModel modelo = consultar.mostrarTodosLosQuesos();
+        jTable1.setModel(modelo);
+    }
+    
+    
     /**
      * @param args the command line arguments
      */
