@@ -33,7 +33,7 @@
     <Property name="useNullLayout" type="boolean" value="false"/>
   </Layout>
   <SubComponents>
-    <Container class="javax.swing.JPanel" name="jPanel2">
+    <Container class="javax.swing.JPanel" name="JPanel">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="0" green="cc" red="fa" type="rgb"/>
@@ -151,16 +151,11 @@
             </Constraint>
           </Constraints>
         </Component>
-        <Component class="javax.swing.JComboBox" name="jComboBox2">
+        <Component class="javax.swing.JComboBox" name="textura">
           <Properties>
             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-              <StringArray count="6">
+              <StringArray count="1">
                 <StringItem index="0" value="Seleccione"/>
-                <StringItem index="1" value="Blando"/>
-                <StringItem index="2" value="Semiblando"/>
-                <StringItem index="3" value="Semiduro"/>
-                <StringItem index="4" value="Duro"/>
-                <StringItem index="5" value="Extraduro"/>
               </StringArray>
             </Property>
           </Properties>
@@ -187,16 +182,11 @@
             </Constraint>
           </Constraints>
         </Component>
-        <Component class="javax.swing.JComboBox" name="jComboBox3">
+        <Component class="javax.swing.JComboBox" name="gusto">
           <Properties>
             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-              <StringArray count="6">
+              <StringArray count="1">
                 <StringItem index="0" value="Seleccione"/>
-                <StringItem index="1" value="Fresco o dulce"/>
-                <StringItem index="2" value="Poco Pronunciado"/>
-                <StringItem index="3" value="Pronunciado"/>
-                <StringItem index="4" value="Fuerte"/>
-                <StringItem index="5" value="Muy fuerte"/>
               </StringArray>
             </Property>
           </Properties>
@@ -210,20 +200,16 @@
             </Constraint>
           </Constraints>
         </Component>
-        <Component class="javax.swing.JComboBox" name="jComboBox1">
+        <Component class="javax.swing.JComboBox" name="tipo_queso">
           <Properties>
             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-              <StringArray count="5">
+              <StringArray count="1">
                 <StringItem index="0" value="Seleccione"/>
-                <StringItem index="1" value="Leche de vaca"/>
-                <StringItem index="2" value="Leche de oveja"/>
-                <StringItem index="3" value="Leche de cabra"/>
-                <StringItem index="4" value="Mezcla de leches"/>
               </StringArray>
             </Property>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jComboBox1ActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="tipo_quesoActionPerformed"/>
           </Events>
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
@@ -248,14 +234,11 @@
             </Constraint>
           </Constraints>
         </Component>
-        <Component class="javax.swing.JComboBox" name="jComboBox4">
+        <Component class="javax.swing.JComboBox" name="tratamiento">
           <Properties>
             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-              <StringArray count="4">
+              <StringArray count="1">
                 <StringItem index="0" value="Seleccione"/>
-                <StringItem index="1" value="Microfiltrada"/>
-                <StringItem index="2" value="Termizada"/>
-                <StringItem index="3" value="Pasteurizada"/>
               </StringArray>
             </Property>
           </Properties>
@@ -351,20 +334,16 @@
             </Component>
           </SubComponents>
         </Container>
-        <Component class="javax.swing.JComboBox" name="jComboBox5">
+        <Component class="javax.swing.JComboBox" name="tipo_leche">
           <Properties>
             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-              <StringArray count="5">
+              <StringArray count="1">
                 <StringItem index="0" value="Seleccione"/>
-                <StringItem index="1" value="Leche de vaca"/>
-                <StringItem index="2" value="Leche de oveja"/>
-                <StringItem index="3" value="Leche de cabra"/>
-                <StringItem index="4" value="Mezcla de leches"/>
               </StringArray>
             </Property>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jComboBox5ActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="tipo_lecheActionPerformed"/>
           </Events>
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
@@ -376,20 +355,16 @@
             </Constraint>
           </Constraints>
         </Component>
-        <Component class="javax.swing.JComboBox" name="jComboBox6">
+        <Component class="javax.swing.JComboBox" name="contenido_graso">
           <Properties>
             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-              <StringArray count="5">
+              <StringArray count="1">
                 <StringItem index="0" value="Seleccione"/>
-                <StringItem index="1" value="Leche de vaca"/>
-                <StringItem index="2" value="Leche de oveja"/>
-                <StringItem index="3" value="Leche de cabra"/>
-                <StringItem index="4" value="Mezcla de leches"/>
               </StringArray>
             </Property>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jComboBox6ActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="contenido_grasoActionPerformed"/>
           </Events>
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
@@ -401,20 +376,16 @@
             </Constraint>
           </Constraints>
         </Component>
-        <Component class="javax.swing.JComboBox" name="jComboBox7">
+        <Component class="javax.swing.JComboBox" name="maduracion">
           <Properties>
             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-              <StringArray count="5">
+              <StringArray count="1">
                 <StringItem index="0" value="Seleccione"/>
-                <StringItem index="1" value="Leche de vaca"/>
-                <StringItem index="2" value="Leche de oveja"/>
-                <StringItem index="3" value="Leche de cabra"/>
-                <StringItem index="4" value="Mezcla de leches"/>
               </StringArray>
             </Property>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jComboBox7ActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="maduracionActionPerformed"/>
           </Events>
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>

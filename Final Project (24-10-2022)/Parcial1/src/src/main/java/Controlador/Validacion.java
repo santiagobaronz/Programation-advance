@@ -31,6 +31,11 @@ public class Validacion {
             if(username_form.equals(username) && password_form.equals(password)){
                 Menu menuPrincipal = new Menu();
                 menuPrincipal.setVisible(true);
+                
+                Archivo cargarDatos = new Archivo();
+                cargarDatos.cargarDatos();
+                
+                
             }else{
                 JOptionPane.showMessageDialog(null, "Usuario incorrecto, el programa se cerrará");
                 System.exit(0);

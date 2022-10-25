@@ -18,7 +18,10 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.ArrayList;
 import java.util.Properties;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import src.main.java.Controlador.Validacion;
 import src.main.java.Vista.Eliminar;
@@ -28,30 +31,31 @@ import src.main.java.Vista.Eliminar;
  * @author Mauricio
  */
 public class Controlador implements ActionListener {
+
     //declaramos los atributos
     private Usuario modelo1;
     private Queso modelo2;
-    
+
     private Login vista1;
     private Menu vista2;
     private Ingresar vista3;
     private Consultar vista4;
     private Modificar vista5;
     private Eliminar vista6;
-    
+
     // CONSTRUCTOR
     public Controlador(Usuario modelo1, Queso modelo2, Login vista1, Menu vista2, Ingresar vista3, Consultar vista4, Modificar vista5, Eliminar vista6) {
-        
+
         this.modelo1 = modelo1;
         this.modelo2 = modelo2;
-        
+
         this.vista1 = vista1;
         this.vista2 = vista2;
         this.vista3 = vista3;
         this.vista4 = vista4;
         this.vista5 = vista5;
         this.vista6 = vista6;
-        
+
         // ENVIAMOS LA REFERENCIA A LA VISTA
         // LOGIN
         this.vista1.jButton1.addActionListener(this);
@@ -70,23 +74,18 @@ public class Controlador implements ActionListener {
         this.vista4.jButton1.addActionListener(this);
         this.vista4.jButton2.addActionListener(this);
         this.vista4.jButton3.addActionListener(this);
-        // MODIFICAR
-        this.vista5.jButton1.addActionListener(this);
-        this.vista5.jButton2.addActionListener(this);
-        this.vista5.jButton3.addActionListener(this);
-        this.vista5.jButton4.addActionListener(this);
         // ELIMINAR
         this.vista6.jButton1.addActionListener(this);
         this.vista6.jButton2.addActionListener(this);
         this.vista6.jButton3.addActionListener(this);
         this.vista6.jButton4.addActionListener(this);
-        
+
     }
-    
+
     // CONSTRUCTOR VACIO
-    public Controlador() {
+    public Controlador() throws IOException, IOException {
     }
-    
+
     // metodo iniciar ventana
     public void iniciar() {
         // colocarle un titulo a la ventana
@@ -94,17 +93,10 @@ public class Controlador implements ActionListener {
         // Se le indica la posicion --> null para que la ventana inicie en //la posicion 0 es decir en el centro de la pantalla
         this.vista1.setLocationRelativeTo(null);
     }
-    
-    public void TipoQuesoArray(String tq1, String tq2, String tq3, String tq4, 
-            String tq5, String tq6, String tq7, String tq8, String tq9, String tq10, 
-            String tq11, String tq12, String tq13, String tq14, String tq15, String tq16, 
-            String tq17, String tq18, String tq19, String tq20, String tq21, String tq22, 
-            String tq23, String tq24, String tq25, String tq26, String tq27, String tq28, 
-            String tq29, String tq30, String tq31, String tq32, String tq33, String tq34, 
-            String tq35, String tq36) throws FileNotFoundException, IOException {
-        
-        try(InputStream lectura = new FileInputStream("properties.properties")) {
-            
+
+    public String[] TipoQuesoArray() {
+        String[] arrayFinal = null;
+        try ( InputStream lectura = new FileInputStream("properties.properties")) {
             Properties propiedades = new Properties();
             propiedades.load(lectura);
             String tipoq1 = propiedades.getProperty("TIPO_DE_QUESO_1");
@@ -143,24 +135,132 @@ public class Controlador implements ActionListener {
             String tipoq34 = propiedades.getProperty("TIPO_DE_QUESO_34");
             String tipoq35 = propiedades.getProperty("TIPO_DE_QUESO_35");
             String tipoq36 = propiedades.getProperty("TIPO_DE_QUESO_36");
-            
-            
-            String[] arrayTipoQueso = {tipoq1, tipoq2, tipoq3, tipoq4, tipoq5, 
-                tipoq6, tipoq7, tipoq8, tipoq9, tipoq10, tipoq11, tipoq12, tipoq13, 
-                tipoq14, tipoq15, tipoq16, tipoq17, tipoq18, tipoq19, tipoq20, tipoq21, 
-                tipoq22, tipoq23, tipoq24, tipoq25, tipoq26, tipoq27, tipoq28, tipoq29, 
+            String[] arrayTipoQueso = {tipoq1, tipoq2, tipoq3, tipoq4, tipoq5,
+                tipoq6, tipoq7, tipoq8, tipoq9, tipoq10, tipoq11, tipoq12, tipoq13,
+                tipoq14, tipoq15, tipoq16, tipoq17, tipoq18, tipoq19, tipoq20, tipoq21,
+                tipoq22, tipoq23, tipoq24, tipoq25, tipoq26, tipoq27, tipoq28, tipoq29,
                 tipoq30, tipoq31, tipoq32, tipoq33, tipoq34, tipoq35, tipoq36};
-            
-            } catch (Exception e) {
+            return arrayTipoQueso;
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(Controlador.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IOException ex) {
+            Logger.getLogger(Controlador.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return arrayFinal;
+    }
+
+    public String[] TipoLecheArray() throws FileNotFoundException, IOException {
+        String[] arrayFinal = null;
+        try ( InputStream lectura = new FileInputStream("properties.properties")) {
+            Queso q = new Queso();
+            Properties propiedades = new Properties();
+            propiedades.load(lectura);
+            String tipoL1 = propiedades.getProperty("TIPO_LECHE_1");
+            String tipoL2 = propiedades.getProperty("TIPO_LECHE_2");
+            String tipoL3 = propiedades.getProperty("TIPO_LECHE_3");
+            String tipoL4 = propiedades.getProperty("TIPO_LECHE_4");
+            String tipoL5 = propiedades.getProperty("TIPO_LECHE_5");
+            String[] arrayTipoDeLeche = {tipoL1, tipoL2, tipoL3, tipoL4, tipoL5};
+            return arrayTipoDeLeche;
+        } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "No se pudo leer el archivo");
         }
+    return arrayFinal;
+    }
 
+    public String[] materiaGrasaArray()throws FileNotFoundException, IOException {
+        String[] arrayFinal = null;
+        try ( InputStream lectura = new FileInputStream("properties.properties")) {
+            Properties propiedades = new Properties();
+            propiedades.load(lectura);
+            String materiaG1 = propiedades.getProperty("MATERIA_GRASA_1");
+            String materiaG2 = propiedades.getProperty("MATERIA_GRASA_2");
+            String materiaG3 = propiedades.getProperty("MATERIA_GRASA_3");
+            String materiaG4 = propiedades.getProperty("MATERIA_GRASA_4");
+            String materiaG5 = propiedades.getProperty("MATERIA_GRASA_5");
+            String[] arrayMateriaGrasa = {materiaG1, materiaG2, materiaG3, materiaG4, materiaG5};
+            return arrayMateriaGrasa;
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "No se pudo leer el archivo");
+        }
+        return arrayFinal;
+    }
+
+    public String[] TipoMaduracionArray() throws FileNotFoundException, IOException {
+        String[] arrayFinal = null;
+        try ( InputStream lectura = new FileInputStream("properties.properties")) {
+            Properties propiedades = new Properties();
+            propiedades.load(lectura);
+            String tipoM1 = propiedades.getProperty("MADURACION_1");
+            String tipoM2 = propiedades.getProperty("MADURACION_2");
+            String tipoM3 = propiedades.getProperty("MADURACION_3");
+            String tipoM4 = propiedades.getProperty("MADURACION_4");
+            String tipoM5 = propiedades.getProperty("MADURACION_5");
+            String[] arrayTipoDeMaduracion = {tipoM1, tipoM2, tipoM3, tipoM4, tipoM5};
+
+            return arrayTipoDeMaduracion;
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "No se pudo leer el archivo");
+        }
+        return arrayFinal;
+    }
+
+    public String[] TipoTexturaArray() throws FileNotFoundException, IOException {
+        String[] arrayFinal = null;
+        try ( InputStream lectura = new FileInputStream("properties.properties")) {
+            Properties propiedades = new Properties();
+            propiedades.load(lectura);
+            String tipoT1 = propiedades.getProperty("TEXTURA_1");
+            String tipoT2 = propiedades.getProperty("TEXTURA_2");
+            String tipoT3 = propiedades.getProperty("TEXTURA_3");
+            String tipoT4 = propiedades.getProperty("TEXTURA_4");
+            String tipoT5 = propiedades.getProperty("TEXTURA_5");
+            String[] arrayTipoDeTextura = {tipoT1, tipoT2, tipoT3, tipoT4, tipoT5};
+            return arrayTipoDeTextura;
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "No se pudo leer el archivo");
+        }
+        return arrayFinal;
+    }
+
+    public String[] TipoIntensidadArray() throws FileNotFoundException, IOException {
+        String[] arrayFinal = null;
+        try ( InputStream lectura = new FileInputStream("properties.properties")) {
+            Properties propiedades = new Properties();
+            propiedades.load(lectura);
+            String tipoI1 = propiedades.getProperty("INTENSIDAD_1");
+            String tipoI2 = propiedades.getProperty("INTENSIDAD_2");
+            String tipoI3 = propiedades.getProperty("INTENSIDAD_3");
+            String tipoI4 = propiedades.getProperty("INTENSIDAD_4");
+            String tipoI5 = propiedades.getProperty("INTENSIDAD_5");
+            String[] arrayTipoDeIntensidad = {tipoI1, tipoI2, tipoI3, tipoI4, tipoI5};
+            return arrayTipoDeIntensidad;
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "No se pudo leer el archivo");
+        }
+        return arrayFinal;
+    }
+
+    public String[] TipoTratamientoArray()throws FileNotFoundException, IOException {
+        String[] arrayFinal = null;
+        try ( InputStream lectura = new FileInputStream("properties.properties")) {
+            Properties propiedades = new Properties();
+            propiedades.load(lectura);
+            String tipoT1 = propiedades.getProperty("TRATAMIENTO_1");
+            String tipoT2 = propiedades.getProperty("TRATAMIENTO_2");
+            String tipoT3 = propiedades.getProperty("TRATAMIENTO_3");
+            String[] arrayTipoDeTratamiento = {tipoT1, tipoT2, tipoT3};
+            return arrayTipoDeTratamiento;
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "No se pudo leer el archivo");
+        }
+        return arrayFinal;
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        
-        if (e.getSource() == this.vista1.jButton1){
+
+        if (e.getSource() == this.vista1.jButton1) {
             try {
                 String username = this.vista1.jTextField1.getText();
                 String password = this.vista1.jTextField2.getText();
@@ -170,5 +270,19 @@ public class Controlador implements ActionListener {
                 JOptionPane.showMessageDialog(null, "No se pudo hacer la validacion de usuario");
             }
         }
+    }
+    
+    // COSAS DE INGRESAR QUESOS
+    
+    public static ArrayList<Queso> listaQuesos = new ArrayList<>();
+
+    public void crearQueso(String tipo_quesoS, String tipo_lecheS, String contenido_grasoS, String maduracionS, String texturaS, String gustoS, String tratamientoS) {
+        
+        
+        Queso queso = new Queso(tipo_quesoS, tipo_lecheS, contenido_grasoS, maduracionS, texturaS, gustoS, tratamientoS);
+        listaQuesos.add(queso);
+        
+        DAO guardar = new DAO();
+        guardar.guardarQuesos(tipo_quesoS, tipo_lecheS, contenido_grasoS, maduracionS, texturaS, gustoS, tratamientoS);
     }
 }

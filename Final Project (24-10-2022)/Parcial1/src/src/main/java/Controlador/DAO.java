@@ -20,13 +20,13 @@ import javax.swing.JOptionPane;
  */
 public class DAO {
     
-    Statement consulta = null;
-    String db = "quesos";
-    String url = "jdbc:mysql://localhost/";
-    String user="root";
-    String password="";
-    String driver="com.mysql.cj.jdbc.Driver";
-    Connection cx;
+    private Statement consulta = null;
+    private String db = "quesos";
+    private String url = "jdbc:mysql://localhost/";
+    private String user="root";
+    private String password="";
+    private String driver="com.mysql.cj.jdbc.Driver";
+    private Connection cx;
     
     public DAO(){
         
@@ -113,10 +113,9 @@ public class DAO {
         try {
             java.sql.Statement consulta = cx.createStatement();
             consulta.executeUpdate(SQL);
-            JOptionPane.showMessageDialog(null,"El queso se ha guardado correctamente");
             
         } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null,"Hubo un error al guardar el queso");
+            JOptionPane.showMessageDialog(null,"Hubo un error al guardar el queso" + ex);
         }
     }
 
@@ -187,6 +186,48 @@ public class DAO {
         
         // Devuelve el modelo con el que se rellenaran las tablas
         return modelo;
+    }
+
+    public void actualizarQueso(String idParaModificar, String tipoQueso,
+            String tipoLeche, String contenido, String maduracion, 
+            String textura, String gusto, String tratamiento) {
+        
+        int id = Integer.parseInt(idParaModificar);
+        String SQL = "UPDATE quesos SET tipo_queso='"+ tipoQueso +"' ,"
+                                + "tipo_leche='"+ tipoLeche +"' ,"
+                                + "contenido_materia_grasa='"+ contenido +"' ,"
+                                + "maduracion='"+ maduracion +"' ,"
+                                + "textura='"+ textura +"' ,"
+                                + "gusto='"+ gusto +"' ,"
+                                + "tratamiento_leche='"+ tratamiento +"'"
+                                + "WHERE id="+idParaModificar+"";
+        
+        conectar();
+        try {
+            java.sql.Statement consulta = cx.createStatement();
+            consulta.executeUpdate(SQL);
+            JOptionPane.showMessageDialog(null,"El queso se ha actualizado correctamente");
+            
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null,"Hubo un error al actualizar el queso");
+        }
+        
+    }
+
+    public void borrarDB() {
+        
+        String SQL = "DELETE FROM quesos";
+        conectar();
+        try {
+            java.sql.Statement consulta = cx.createStatement();
+            consulta.executeUpdate(SQL);
+            JOptionPane.showMessageDialog(null,"La base de datos se ha limpiado correctamente. Gracias por usar CATIRA");
+            System.exit(0);
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null,"Hubo un error al limpiar la base de datos");
+        }
+        
+        
     }
     
     

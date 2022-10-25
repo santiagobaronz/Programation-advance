@@ -6,7 +6,10 @@ package src.main.java.Vista;
 
 import java.awt.Image;
 import java.awt.Toolkit;
+import java.io.IOException;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
+import src.main.java.Controlador.Controlador;
 import src.main.java.Controlador.DAO;
 
 /**
@@ -23,6 +26,7 @@ public class Consultar extends javax.swing.JFrame {
         setLocationRelativeTo(null);
         LimpiarCampos();
         mostrarQuesos();
+        rellenarCombobox();
                
     }
     @Override
@@ -32,13 +36,13 @@ public class Consultar extends javax.swing.JFrame {
     }
     public final void LimpiarCampos(){
 
-        jComboBox1.setSelectedIndex(0);
-        jComboBox2.setSelectedIndex(0);
-        jComboBox3.setSelectedIndex(0);
-        jComboBox4.setSelectedIndex(0);
-        jComboBox5.setSelectedIndex(0);
-        jComboBox6.setSelectedIndex(0);
-        jComboBox7.setSelectedIndex(0);
+        tipo_queso.setSelectedIndex(0);
+        textura.setSelectedIndex(0);
+        gusto.setSelectedIndex(0);
+        tratamiento.setSelectedIndex(0);
+        tipo_leche.setSelectedIndex(0);
+        contenido_graso.setSelectedIndex(0);
+        maduracion.setSelectedIndex(0);
         buttonGroup1.clearSelection();
         
         mostrarQuesos();
@@ -55,27 +59,27 @@ public class Consultar extends javax.swing.JFrame {
     private void initComponents() {
 
         buttonGroup1 = new javax.swing.ButtonGroup();
-        jPanel2 = new javax.swing.JPanel();
+        JPanel = new javax.swing.JPanel();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
-        jComboBox2 = new javax.swing.JComboBox<>();
+        textura = new javax.swing.JComboBox<>();
         jLabel4 = new javax.swing.JLabel();
-        jComboBox3 = new javax.swing.JComboBox<>();
-        jComboBox1 = new javax.swing.JComboBox<>();
+        gusto = new javax.swing.JComboBox<>();
+        tipo_queso = new javax.swing.JComboBox<>();
         jLabel5 = new javax.swing.JLabel();
-        jComboBox4 = new javax.swing.JComboBox<>();
+        tratamiento = new javax.swing.JComboBox<>();
         jLabel6 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
-        jComboBox5 = new javax.swing.JComboBox<>();
-        jComboBox6 = new javax.swing.JComboBox<>();
-        jComboBox7 = new javax.swing.JComboBox<>();
+        tipo_leche = new javax.swing.JComboBox<>();
+        contenido_graso = new javax.swing.JComboBox<>();
+        maduracion = new javax.swing.JComboBox<>();
         jLabel9 = new javax.swing.JLabel();
         jRadioButton1 = new javax.swing.JRadioButton();
         jRadioButton2 = new javax.swing.JRadioButton();
@@ -90,9 +94,9 @@ public class Consultar extends javax.swing.JFrame {
         setIconImage(getIconImage());
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel2.setBackground(new java.awt.Color(250, 204, 0));
-        jPanel2.setToolTipText("CONSULTAR");
-        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        JPanel.setBackground(new java.awt.Color(250, 204, 0));
+        JPanel.setToolTipText("CONSULTAR");
+        JPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jButton1.setBackground(new java.awt.Color(0, 0, 0));
         jButton1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
@@ -103,7 +107,7 @@ public class Consultar extends javax.swing.JFrame {
                 jButton1ActionPerformed(evt);
             }
         });
-        jPanel2.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 410, 180, -1));
+        JPanel.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 410, 180, -1));
 
         jButton2.setBackground(new java.awt.Color(0, 0, 0));
         jButton2.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
@@ -114,7 +118,7 @@ public class Consultar extends javax.swing.JFrame {
                 jButton2ActionPerformed(evt);
             }
         });
-        jPanel2.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 410, 190, -1));
+        JPanel.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 410, 190, -1));
 
         jButton3.setBackground(new java.awt.Color(0, 0, 0));
         jButton3.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
@@ -125,57 +129,57 @@ public class Consultar extends javax.swing.JFrame {
                 jButton3ActionPerformed(evt);
             }
         });
-        jPanel2.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 460, 310, -1));
+        JPanel.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 460, 310, -1));
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel3.setText("Tipo de leche:");
-        jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 140, -1, -1));
+        JPanel.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 140, -1, -1));
 
         jLabel8.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel8.setText("Tratamiento de la leche:");
-        jPanel2.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 340, -1, -1));
+        JPanel.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 340, -1, -1));
 
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccione", "Blando", "Semiblando", "Semiduro", "Duro", "Extraduro" }));
-        jPanel2.add(jComboBox2, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 260, 150, -1));
+        textura.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccione" }));
+        JPanel.add(textura, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 260, 150, -1));
 
         jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel4.setText("Contenido graso:");
-        jPanel2.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 180, -1, -1));
+        JPanel.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 180, -1, -1));
 
-        jComboBox3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccione", "Fresco o dulce", "Poco Pronunciado", "Pronunciado", "Fuerte", "Muy fuerte" }));
-        jPanel2.add(jComboBox3, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 300, 150, -1));
+        gusto.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccione" }));
+        JPanel.add(gusto, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 300, 150, -1));
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccione", "Leche de vaca", "Leche de oveja", "Leche de cabra", "Mezcla de leches" }));
-        jComboBox1.addActionListener(new java.awt.event.ActionListener() {
+        tipo_queso.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccione" }));
+        tipo_queso.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBox1ActionPerformed(evt);
+                tipo_quesoActionPerformed(evt);
             }
         });
-        jPanel2.add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 100, 150, -1));
+        JPanel.add(tipo_queso, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 100, 150, -1));
 
         jLabel5.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel5.setText("Maduración:");
-        jPanel2.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 220, -1, -1));
+        JPanel.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 220, -1, -1));
 
-        jComboBox4.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccione", "Microfiltrada", "Termizada", "Pasteurizada" }));
-        jPanel2.add(jComboBox4, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 340, 150, -1));
+        tratamiento.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccione" }));
+        JPanel.add(tratamiento, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 340, 150, -1));
 
         jLabel6.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel6.setText("Textura:");
-        jPanel2.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 260, -1, -1));
+        JPanel.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 260, -1, -1));
 
         jLabel1.setFont(new java.awt.Font("Bell MT", 1, 36)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("CONSULTAR");
-        jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 20, 1330, -1));
+        JPanel.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 20, 1330, -1));
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel2.setText("Tipo de queso:");
-        jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 100, -1, -1));
+        JPanel.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 100, -1, -1));
 
         jLabel7.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel7.setText("Gusto:");
-        jPanel2.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 300, -1, -1));
+        JPanel.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 300, -1, -1));
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -190,41 +194,41 @@ public class Consultar extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(jTable1);
 
-        jPanel2.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 80, 840, 320));
+        JPanel.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 80, 840, 320));
 
-        jComboBox5.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccione", "Leche de vaca", "Leche de oveja", "Leche de cabra", "Mezcla de leches" }));
-        jComboBox5.addActionListener(new java.awt.event.ActionListener() {
+        tipo_leche.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccione" }));
+        tipo_leche.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBox5ActionPerformed(evt);
+                tipo_lecheActionPerformed(evt);
             }
         });
-        jPanel2.add(jComboBox5, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 140, 150, -1));
+        JPanel.add(tipo_leche, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 140, 150, -1));
 
-        jComboBox6.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccione", "Leche de vaca", "Leche de oveja", "Leche de cabra", "Mezcla de leches" }));
-        jComboBox6.addActionListener(new java.awt.event.ActionListener() {
+        contenido_graso.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccione" }));
+        contenido_graso.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBox6ActionPerformed(evt);
+                contenido_grasoActionPerformed(evt);
             }
         });
-        jPanel2.add(jComboBox6, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 180, 150, -1));
+        JPanel.add(contenido_graso, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 180, 150, -1));
 
-        jComboBox7.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccione", "Leche de vaca", "Leche de oveja", "Leche de cabra", "Mezcla de leches" }));
-        jComboBox7.addActionListener(new java.awt.event.ActionListener() {
+        maduracion.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccione" }));
+        maduracion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBox7ActionPerformed(evt);
+                maduracionActionPerformed(evt);
             }
         });
-        jPanel2.add(jComboBox7, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 220, 150, -1));
+        JPanel.add(maduracion, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 220, 150, -1));
 
         jLabel9.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         jLabel9.setText("Seleccione un filtro para su consulta");
-        jPanel2.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 60, 280, -1));
+        JPanel.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 60, 280, -1));
 
         buttonGroup1.add(jRadioButton1);
-        jPanel2.add(jRadioButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 350, 30, -1));
+        JPanel.add(jRadioButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 350, 30, -1));
 
         buttonGroup1.add(jRadioButton2);
-        jPanel2.add(jRadioButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 110, 30, -1));
+        JPanel.add(jRadioButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 110, 30, -1));
 
         buttonGroup1.add(jRadioButton3);
         jRadioButton3.addActionListener(new java.awt.event.ActionListener() {
@@ -232,21 +236,21 @@ public class Consultar extends javax.swing.JFrame {
                 jRadioButton3ActionPerformed(evt);
             }
         });
-        jPanel2.add(jRadioButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 150, 30, -1));
+        JPanel.add(jRadioButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 150, 30, -1));
 
         buttonGroup1.add(jRadioButton4);
-        jPanel2.add(jRadioButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 190, 30, -1));
+        JPanel.add(jRadioButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 190, 30, -1));
 
         buttonGroup1.add(jRadioButton5);
-        jPanel2.add(jRadioButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 230, 30, -1));
+        JPanel.add(jRadioButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 230, 30, -1));
 
         buttonGroup1.add(jRadioButton6);
-        jPanel2.add(jRadioButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 270, 30, -1));
+        JPanel.add(jRadioButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 270, 30, -1));
 
         buttonGroup1.add(jRadioButton7);
-        jPanel2.add(jRadioButton7, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 310, 30, -1));
+        JPanel.add(jRadioButton7, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 310, 30, -1));
 
-        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1330, 530));
+        getContentPane().add(JPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1330, 530));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -257,36 +261,36 @@ public class Consultar extends javax.swing.JFrame {
         
         if(this.jRadioButton2.isSelected()){
             option = "tipo_queso";
-            type = (String) jComboBox1.getSelectedItem();
+            type = (String) tipo_queso.getSelectedItem();
         }
         
         if(this.jRadioButton3.isSelected()){
             option = "tipo_leche";
-            type = (String) jComboBox5.getSelectedItem();
+            type = (String) tipo_leche.getSelectedItem();
         }
 
         if(this.jRadioButton4.isSelected()){
             option = "contenido_materia_grasa";
-            type = (String) jComboBox6.getSelectedItem();
+            type = (String) contenido_graso.getSelectedItem();
         }
 
         if(this.jRadioButton5.isSelected()){
             option = "maduracion";
-            type = (String) jComboBox7.getSelectedItem();
+            type = (String) maduracion.getSelectedItem();
         }
 
         if(this.jRadioButton6.isSelected()){
             option = "textura";
-            type = (String) jComboBox2.getSelectedItem();
+            type = (String) textura.getSelectedItem();
         }
 
         if(this.jRadioButton7.isSelected()){
             option = "gusto";
-            type = (String) jComboBox3.getSelectedItem();
+            type = (String) gusto.getSelectedItem();
         }
         if(this.jRadioButton1.isSelected()){
             option = "tratamiento_leche";
-            type = (String) jComboBox4.getSelectedItem();
+            type = (String) tratamiento.getSelectedItem();
         }
 
         DAO consultar = new DAO();
@@ -301,26 +305,26 @@ public class Consultar extends javax.swing.JFrame {
         setVisible(false);
     }//GEN-LAST:event_jButton3ActionPerformed
 
-    private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
+    private void tipo_quesoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tipo_quesoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jComboBox1ActionPerformed
+    }//GEN-LAST:event_tipo_quesoActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
         LimpiarCampos();
     }//GEN-LAST:event_jButton2ActionPerformed
 
-    private void jComboBox5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox5ActionPerformed
+    private void tipo_lecheActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tipo_lecheActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jComboBox5ActionPerformed
+    }//GEN-LAST:event_tipo_lecheActionPerformed
 
-    private void jComboBox6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox6ActionPerformed
+    private void contenido_grasoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_contenido_grasoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jComboBox6ActionPerformed
+    }//GEN-LAST:event_contenido_grasoActionPerformed
 
-    private void jComboBox7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox7ActionPerformed
+    private void maduracionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_maduracionActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jComboBox7ActionPerformed
+    }//GEN-LAST:event_maduracionActionPerformed
 
     private void jRadioButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton3ActionPerformed
         // TODO add your handling code here:
@@ -333,54 +337,68 @@ public class Consultar extends javax.swing.JFrame {
         jTable1.setModel(modelo);
     }
     
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
+    public void rellenarCombobox(){
+        Controlador control;
         try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
+            control = new Controlador();
+            Object [] tipo_queso = control.TipoQuesoArray();
+            Object [] tipo_leche = control.TipoLecheArray();
+            Object [] contenido_grasa = control.materiaGrasaArray();
+            Object [] maduraciont = control.TipoMaduracionArray();
+            Object [] texturat = control.TipoTexturaArray();
+            Object [] gustot = control.TipoIntensidadArray();
+            Object [] tratamientot = control.TipoTratamientoArray();
+            
+            for (int i = 0; i < tipo_queso.length; i++) {
+                String nameOfOption = tipo_queso[i].toString();
+                this.tipo_queso.addItem(nameOfOption);
             }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Consultar.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Consultar.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Consultar.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Consultar.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            
+            for (int i = 0; i < tipo_leche.length; i++) {
+                String nameOfOption = tipo_leche[i].toString();
+                this.tipo_leche.addItem(nameOfOption);
+            }
+            
+            for (int i = 0; i < contenido_grasa.length; i++) {
+                String nameOfOption = contenido_grasa[i].toString();
+                this.contenido_graso.addItem(nameOfOption);
+            }
+            
+            for (int i = 0; i < maduraciont.length; i++) {
+                String nameOfOption = maduraciont[i].toString();
+                this.maduracion.addItem(nameOfOption);
+            }
+            
+            for (int i = 0; i < texturat.length; i++) {
+                String nameOfOption = texturat[i].toString();
+                this.textura.addItem(nameOfOption);
+            }
+            
+            for (int i = 0; i < gustot.length; i++) {
+                String nameOfOption = gustot[i].toString();
+                this.gusto.addItem(nameOfOption);
+            }
+            
+            for (int i = 0; i < tratamientot.length; i++) {
+                String nameOfOption = tratamientot[i].toString();
+                this.tratamiento.addItem(nameOfOption);
+            }
+            
+            
+        } catch (IOException ex) {
+            JOptionPane.showMessageDialog(null,"No se pudieron rellenar los combobox");
         }
-        //</editor-fold>
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new Consultar().setVisible(true);
-            }
-        });
     }
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPanel JPanel;
     private javax.swing.ButtonGroup buttonGroup1;
+    public javax.swing.JComboBox<String> contenido_graso;
+    public javax.swing.JComboBox<String> gusto;
     public javax.swing.JButton jButton1;
     public javax.swing.JButton jButton2;
     public javax.swing.JButton jButton3;
-    public javax.swing.JComboBox<String> jComboBox1;
-    public javax.swing.JComboBox<String> jComboBox2;
-    public javax.swing.JComboBox<String> jComboBox3;
-    public javax.swing.JComboBox<String> jComboBox4;
-    public javax.swing.JComboBox<String> jComboBox5;
-    public javax.swing.JComboBox<String> jComboBox6;
-    public javax.swing.JComboBox<String> jComboBox7;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -390,7 +408,6 @@ public class Consultar extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
-    private javax.swing.JPanel jPanel2;
     private javax.swing.JRadioButton jRadioButton1;
     private javax.swing.JRadioButton jRadioButton2;
     private javax.swing.JRadioButton jRadioButton3;
@@ -400,5 +417,10 @@ public class Consultar extends javax.swing.JFrame {
     private javax.swing.JRadioButton jRadioButton7;
     private javax.swing.JScrollPane jScrollPane1;
     public javax.swing.JTable jTable1;
+    public javax.swing.JComboBox<String> maduracion;
+    public javax.swing.JComboBox<String> textura;
+    public javax.swing.JComboBox<String> tipo_leche;
+    public javax.swing.JComboBox<String> tipo_queso;
+    public javax.swing.JComboBox<String> tratamiento;
     // End of variables declaration//GEN-END:variables
 }

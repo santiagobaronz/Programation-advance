@@ -6,8 +6,13 @@ package src.main.java.Vista;
 
 import java.awt.Image;
 import java.awt.Toolkit;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
+import src.main.java.Controlador.Controlador;
 import src.main.java.Controlador.DAO;
+import src.main.java.Modelo.Queso;
 
 /**
  *
@@ -23,6 +28,7 @@ public class Ingresar extends javax.swing.JFrame {
         initComponents();
         setLocationRelativeTo(null);
         LimpiarCampos();
+        rellenarCombobox();
     }
     @Override
     public Image getIconImage(){
@@ -142,16 +148,16 @@ public class Ingresar extends javax.swing.JFrame {
         });
         jPanel1.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 270, 90, -1));
 
-        textura.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccione", "Blando", "Semiblando", "Semiduro", "Duro", "Extraduro" }));
+        textura.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccione" }));
         jPanel1.add(textura, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 90, 150, -1));
 
-        gusto.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccione", "Fresco o dulce", "Poco Pronunciado", "Pronunciado", "Fuerte", "Muy fuerte" }));
+        gusto.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccione" }));
         jPanel1.add(gusto, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 130, 150, -1));
 
-        tratamiento.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccione", "Microfiltrada", "Termizada", "Pasteurizada" }));
+        tratamiento.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccione" }));
         jPanel1.add(tratamiento, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 170, 150, -1));
 
-        tipo_queso.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccione", "Leche de vaca", "Leche de oveja", "Leche de cabra", "Mezcla de leches" }));
+        tipo_queso.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccione" }));
         tipo_queso.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 tipo_quesoActionPerformed(evt);
@@ -159,7 +165,7 @@ public class Ingresar extends javax.swing.JFrame {
         });
         jPanel1.add(tipo_queso, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 90, 150, -1));
 
-        tipo_leche.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccione", "Leche de vaca", "Leche de oveja", "Leche de cabra", "Mezcla de leches" }));
+        tipo_leche.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccione" }));
         tipo_leche.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 tipo_lecheActionPerformed(evt);
@@ -167,7 +173,7 @@ public class Ingresar extends javax.swing.JFrame {
         });
         jPanel1.add(tipo_leche, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 130, 150, -1));
 
-        contenido_graso.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccione", "Leche de vaca", "Leche de oveja", "Leche de cabra", "Mezcla de leches" }));
+        contenido_graso.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccione" }));
         contenido_graso.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 contenido_grasoActionPerformed(evt);
@@ -175,7 +181,7 @@ public class Ingresar extends javax.swing.JFrame {
         });
         jPanel1.add(contenido_graso, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 170, 150, -1));
 
-        maduracion.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccione", "Leche de vaca", "Leche de oveja", "Leche de cabra", "Mezcla de leches" }));
+        maduracion.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccione" }));
         maduracion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 maduracionActionPerformed(evt);
@@ -230,50 +236,71 @@ public class Ingresar extends javax.swing.JFrame {
             tratamientoS = (String) this.tratamiento.getSelectedItem();
             
             
-            DAO guardar = new DAO();
-            guardar.guardarQuesos(tipo_quesoS, tipo_lecheS, contenido_grasoS, maduracionS, texturaS, gustoS, tratamientoS);
-            
-            
-                    
+            try {
+                Controlador control;
+                control = new Controlador();
+                control.crearQueso(tipo_quesoS, tipo_lecheS, contenido_grasoS, maduracionS, texturaS, gustoS, tratamientoS);
+                JOptionPane.showMessageDialog(null,"El queso se ha guardado correctamente");
+            } catch (IOException ex) {
+                JOptionPane.showMessageDialog(null,"No se pudo guardar el queso");
+            }
+
+
     }//GEN-LAST:event_IngresarBTNActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
+    public void rellenarCombobox(){
+        Controlador control;
         try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
+            control = new Controlador();
+            Object [] tipo_queso = control.TipoQuesoArray();
+            Object [] tipo_leche = control.TipoLecheArray();
+            Object [] contenido_grasa = control.materiaGrasaArray();
+            Object [] maduraciont = control.TipoMaduracionArray();
+            Object [] texturat = control.TipoTexturaArray();
+            Object [] gustot = control.TipoIntensidadArray();
+            Object [] tratamientot = control.TipoTratamientoArray();
+            
+            for (int i = 0; i < tipo_queso.length; i++) {
+                String nameOfOption = tipo_queso[i].toString();
+                this.tipo_queso.addItem(nameOfOption);
             }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Ingresar.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Ingresar.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Ingresar.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Ingresar.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            
+            for (int i = 0; i < tipo_leche.length; i++) {
+                String nameOfOption = tipo_leche[i].toString();
+                this.tipo_leche.addItem(nameOfOption);
+            }
+            
+            for (int i = 0; i < contenido_grasa.length; i++) {
+                String nameOfOption = contenido_grasa[i].toString();
+                this.contenido_graso.addItem(nameOfOption);
+            }
+            
+            for (int i = 0; i < maduraciont.length; i++) {
+                String nameOfOption = maduraciont[i].toString();
+                this.maduracion.addItem(nameOfOption);
+            }
+            
+            for (int i = 0; i < texturat.length; i++) {
+                String nameOfOption = texturat[i].toString();
+                this.textura.addItem(nameOfOption);
+            }
+            
+            for (int i = 0; i < gustot.length; i++) {
+                String nameOfOption = gustot[i].toString();
+                this.gusto.addItem(nameOfOption);
+            }
+            
+            for (int i = 0; i < tratamientot.length; i++) {
+                String nameOfOption = tratamientot[i].toString();
+                this.tratamiento.addItem(nameOfOption);
+            }
+            
+            
+        } catch (IOException ex) {
+            JOptionPane.showMessageDialog(null,"No se pudieron rellenar los combobox");
         }
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new Ingresar().setVisible(true);
-            }
-        });
     }
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JButton IngresarBTN;
