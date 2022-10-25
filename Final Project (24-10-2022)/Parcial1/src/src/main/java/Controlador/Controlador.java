@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package Controlador;
+package src.main.java.Controlador;
 
 import Modelo.Queso;
 import Modelo.Usuario;
@@ -57,11 +57,11 @@ public class Controlador implements ActionListener {
         this.vista1.jButton1.addActionListener(this);
         this.vista1.jButton2.addActionListener(this);
         // MENÚ
-        this.vista2.jButton1.addActionListener(this);
-        this.vista2.jButton2.addActionListener(this);
-        this.vista2.jButton3.addActionListener(this);
-        this.vista2.jButton4.addActionListener(this);
-        this.vista2.jButton5.addActionListener(this);
+        this.vista2.ingresarBTN.addActionListener(this);
+        this.vista2.consultarBTN.addActionListener(this);
+        this.vista2.modificarBTN.addActionListener(this);
+        this.vista2.eliminarBTN.addActionListener(this);
+        this.vista2.cerrarBTN.addActionListener(this);
         // INGRESAR
         this.vista3.jButton1.addActionListener(this);
         this.vista3.jButton2.addActionListener(this);
@@ -109,6 +109,9 @@ public class Controlador implements ActionListener {
             }
 
         }
+        
+        
+       
         
     }
     

@@ -6,6 +6,8 @@ package Vista;
 
 import java.awt.Image;
 import java.awt.Toolkit;
+import javax.swing.table.DefaultTableModel;
+import src.main.java.Controlador.DAO;
 
 /**
  *
@@ -20,6 +22,8 @@ public class Consultar extends javax.swing.JFrame {
         initComponents();
         setLocationRelativeTo(null);
         LimpiarCampos();
+        mostrarQuesos();
+               
     }
     @Override
     public Image getIconImage(){
@@ -236,6 +240,13 @@ public class Consultar extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jComboBox7ActionPerformed
 
+    public void mostrarQuesos(){
+    
+        DAO consultar = new DAO();
+        DefaultTableModel modelo = consultar.mostrarQuesos();
+        jTable1.setModel(modelo);
+    }
+    
     /**
      * @param args the command line arguments
      */

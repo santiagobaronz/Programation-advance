@@ -39,11 +39,11 @@ public class Menu extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
-        jButton5 = new javax.swing.JButton();
+        ingresarBTN = new javax.swing.JButton();
+        consultarBTN = new javax.swing.JButton();
+        modificarBTN = new javax.swing.JButton();
+        eliminarBTN = new javax.swing.JButton();
+        cerrarBTN = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("MENÚ");
@@ -64,100 +64,100 @@ public class Menu extends javax.swing.JFrame {
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/QUESO-INGRESO.png"))); // NOI18N
         jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 90, 230, 210));
 
-        jButton1.setBackground(new java.awt.Color(0, 0, 0));
-        jButton1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(255, 255, 255));
-        jButton1.setText("Ingresar");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        ingresarBTN.setBackground(new java.awt.Color(0, 0, 0));
+        ingresarBTN.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        ingresarBTN.setForeground(new java.awt.Color(255, 255, 255));
+        ingresarBTN.setText("Ingresar");
+        ingresarBTN.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                ingresarBTNActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 100, 140, -1));
+        jPanel1.add(ingresarBTN, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 100, 140, -1));
 
-        jButton2.setBackground(new java.awt.Color(0, 0, 0));
-        jButton2.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jButton2.setForeground(new java.awt.Color(255, 255, 255));
-        jButton2.setText("Consultar");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        consultarBTN.setBackground(new java.awt.Color(0, 0, 0));
+        consultarBTN.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        consultarBTN.setForeground(new java.awt.Color(255, 255, 255));
+        consultarBTN.setText("Consultar");
+        consultarBTN.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                consultarBTNActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 140, 140, -1));
+        jPanel1.add(consultarBTN, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 140, 140, -1));
 
-        jButton3.setBackground(new java.awt.Color(0, 0, 0));
-        jButton3.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jButton3.setForeground(new java.awt.Color(255, 255, 255));
-        jButton3.setText("Modificar");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
+        modificarBTN.setBackground(new java.awt.Color(0, 0, 0));
+        modificarBTN.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        modificarBTN.setForeground(new java.awt.Color(255, 255, 255));
+        modificarBTN.setText("Modificar");
+        modificarBTN.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+                modificarBTNActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 180, 140, -1));
+        jPanel1.add(modificarBTN, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 180, 140, -1));
 
-        jButton4.setBackground(new java.awt.Color(0, 0, 0));
-        jButton4.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jButton4.setForeground(new java.awt.Color(255, 255, 255));
-        jButton4.setText("Eliminar");
-        jButton4.addActionListener(new java.awt.event.ActionListener() {
+        eliminarBTN.setBackground(new java.awt.Color(0, 0, 0));
+        eliminarBTN.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        eliminarBTN.setForeground(new java.awt.Color(255, 255, 255));
+        eliminarBTN.setText("Eliminar");
+        eliminarBTN.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton4ActionPerformed(evt);
+                eliminarBTNActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 220, 140, -1));
+        jPanel1.add(eliminarBTN, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 220, 140, -1));
 
-        jButton5.setBackground(new java.awt.Color(255, 0, 0));
-        jButton5.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jButton5.setForeground(new java.awt.Color(255, 255, 255));
-        jButton5.setText("Cerrar sesión");
-        jButton5.addActionListener(new java.awt.event.ActionListener() {
+        cerrarBTN.setBackground(new java.awt.Color(255, 0, 0));
+        cerrarBTN.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        cerrarBTN.setForeground(new java.awt.Color(255, 255, 255));
+        cerrarBTN.setText("Cerrar sesión");
+        cerrarBTN.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton5ActionPerformed(evt);
+                cerrarBTNActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 280, 180, -1));
+        jPanel1.add(cerrarBTN, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 280, 180, -1));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 480, 330));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void ingresarBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ingresarBTNActionPerformed
         // TODO add your handling code here:
         Ingresar ingreso = new Ingresar();
         ingreso.setVisible(true);
         setVisible(false);
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_ingresarBTNActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void consultarBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_consultarBTNActionPerformed
         // TODO add your handling code here:
         Consultar consulta = new Consultar();
         consulta.setVisible(true);
         setVisible(false);
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_consultarBTNActionPerformed
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+    private void modificarBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_modificarBTNActionPerformed
         // TODO add your handling code here:
         Modificar modifica = new Modificar();
         modifica.setVisible(true);
         setVisible(false);
-    }//GEN-LAST:event_jButton3ActionPerformed
+    }//GEN-LAST:event_modificarBTNActionPerformed
 
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+    private void eliminarBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_eliminarBTNActionPerformed
         // TODO add your handling code here:
         Eliminar elimina = new Eliminar();
         elimina.setVisible(true);
         setVisible(false);
         
-    }//GEN-LAST:event_jButton4ActionPerformed
+    }//GEN-LAST:event_eliminarBTNActionPerformed
 
-    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+    private void cerrarBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cerrarBTNActionPerformed
         // TODO add your handling code here:
         System.exit(0);
 
-    }//GEN-LAST:event_jButton5ActionPerformed
+    }//GEN-LAST:event_cerrarBTNActionPerformed
 
     /**
      * @param args the command line arguments
@@ -195,14 +195,14 @@ public class Menu extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    public javax.swing.JButton jButton1;
-    public javax.swing.JButton jButton2;
-    public javax.swing.JButton jButton3;
-    public javax.swing.JButton jButton4;
-    public javax.swing.JButton jButton5;
+    public javax.swing.JButton cerrarBTN;
+    public javax.swing.JButton consultarBTN;
+    public javax.swing.JButton eliminarBTN;
+    public javax.swing.JButton ingresarBTN;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
+    public javax.swing.JButton modificarBTN;
     // End of variables declaration//GEN-END:variables
 }
