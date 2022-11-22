@@ -1,0 +1,321 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,wght@0,200;0,300;0,400;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,600;1,700;1,800;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+* {
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+    font-family: 'Nunito Sans', sans-serif;
+    font-family: 'Poppins', sans-serif;
+	outline: none;
+	border: none;
+	text-decoration: none;
+	list-style: none;
+
+}
+header{
+    background-image: url("../assets/amazonasbg.jpg");
+    background-repeat: no-repeat;
+	background-size: cover;
+}   
+
+body{
+    background-color: #0d1323;
+}
+
+header > nav {
+    width: 100%;
+    height: 80px;
+    background-color: rgba(0, 0, 0, 0.646);
+}
+
+header > nav > ol{
+    text-align: center;
+}
+
+header > nav > ol > li {
+    display: inline-block;
+    line-height: 80px;
+    padding: 0px 40px;
+    margin-left: 20px;
+    font-weight: 600;
+    font-size: 17px;
+}
+
+header > nav > ol > li > a{
+    color: #FFF;
+}
+
+.registerButton{
+    padding: 10px 30px;
+    border: 1px solid #fff;
+    border-radius: 10px;
+}
+
+main{
+    background-color: #0d1323;
+}
+
+p {
+    text-align: justify;
+}
+
+.header-banner{
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.header-banner-info{
+    display: block;
+    margin: auto;
+    padding-top: 15%;
+    width: 70%;
+    text-align: center;
+}
+
+.header-banner-info h1{
+    font-size: 60px;
+    margin-bottom: 20px;
+    color: #fff;
+}
+
+.header-banner-info p{
+    font-size: 20px;
+    margin-bottom: 60px;
+    color: #fff;
+	text-align:center;
+}
+
+.header-banner-info a{
+    padding: 20px 80px;
+    border: 2px solid #fff;
+    border-radius: 20px;
+    text-decoration: none;
+    color: #fff;
+}
+
+.logo{
+    width: 250px;
+    display: block;
+    margin: 150px auto 0 auto;
+}
+
+.info-section{
+    padding-top: 50px;
+    margin: 0 100px;
+}
+
+.info-movie{
+   display: grid;
+   grid-template-columns: 1fr 1.5fr;
+   padding: 40px;
+   column-gap: 50px;
+    width: 100%;
+    margin-bottom: 50px;
+}
+
+.img-info {
+    padding: 60px;
+}
+
+.img-info img{
+    width: 100%;
+    border-radius: 25px;
+}
+
+.text-info{
+    margin-top: 60px;
+    padding: 60px;
+    color: #fff;
+}
+
+.text-info p {
+    font-size: 18px;
+}
+
+.text-info h2{
+    font-size: 28px;
+    margin-bottom: 50px;
+}
+
+section > h2{
+    color: #fff;
+    text-align: center;
+    font-weight: 500;
+    font-size: 30px;
+    margin-bottom: 15px;
+}
+
+section > p{
+    color: #fff;
+    text-align: center;
+    font-weight: 400;
+    font-size: 17px;
+    padding: 10px 20px;
+    background-color: #6610f2;
+    width: 650px;
+    display: block;
+    margin: auto;
+    border-radius: 25px;
+}
+
+.registerNow{
+    color: #fff;
+    text-align: center;
+    font-weight: 400;
+    font-size: 17px;
+    padding: 10px 20px;
+    background-color: #6610f2;
+    width: 450px;
+    display: block;
+    margin: 50px auto;
+    border-radius: 15px;
+}
+
+.tribus-sections{
+    margin: 0 100px;
+}
+
+.tribus{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    row-gap: 30px;
+    padding: 40px;
+    column-gap: 30px;
+    width: 100%;
+    margin-top: 50px;
+}
+
+.tribu-card{
+    background-color: #1d1e42;
+    padding: 55px;
+    border-radius: 15px;
+    transition: all 0.2s;
+    color: #FFF;
+    height: 100%;
+}
+
+.tribu-card img{
+    width: 100%;
+    border-radius: 15px;
+    margin-bottom: 20px;
+}
+
+.tribu-card h3{
+    font-size: 20px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.tribu-card p{
+    font-size: 17px;
+    
+}
+
+.tribu-card:hover{
+    transform: translate(2px,-2px);
+    transition: all 0.2s;
+}
+
+
+.tribu-info{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 50px;
+    padding: 50px;
+    color: #fff;
+}
+
+
+
+.img-tribu-page , .info-tribu-page{
+    margin-top: 50px;
+
+}
+
+.img-tribu-page img{
+    width: 100%;
+    border-radius: 25px;
+}
+
+.info-tribu-page{
+    background-color: #1d1e42;
+    padding: 55px;
+    border-radius: 25px;
+    height: auto;
+}
+
+.tribu-info h2{
+    font-size: 35px;
+    margin-bottom: 30px;
+}
+
+form{
+    padding-top: 60px;
+    width: 700px;
+    margin: auto;
+    background-color: #fff;
+    padding: 50px;
+    border-radius: 25px;
+}
+
+form h2{
+    text-align: center;
+    color: #000;
+    margin-bottom: 50px;
+}
+
+form > input{
+    margin-bottom: 20px !important;
+}
+
+form > label{
+    margin-bottom: 10px;
+}
+
+form > label, form > input{
+    width: 100%;
+    display: block;
+}
+
+form > input, form > select{
+    width: 100%;
+    height: 50px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    font-size: 18px;
+    padding-left: 15px;
+}
+
+form > button{
+    margin-top: 30px;
+    padding: 20px 40px;
+    background-color: #1d1e42;
+    color: #fff;
+    display: block;
+    border-radius: 10px;
+    width: 100%;cursor: pointer;
+}
+
+input[type=radio]{
+	
+	width:20px;
+	text-align:left;
+	
+}
+
+.powers{
+    margin-top: 20px;
+    margin-bottom: 20px;
+	padding: 20px;
+	background-color: #6610f2;
+	color:#FFF;
+	border-radius: 15px;
+}
+
+.form-page{
+    padding-top: 80px;
+    width: 100vw;
+    height: 100vh;
+}
